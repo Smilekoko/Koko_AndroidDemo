@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ak47.www.koko_androiddemo.glide_demo.Glide_Activity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="glide_demo"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/button_glide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:layout_toEndOf="@+id/textView"
+        android:text="设置图片" />
+
+    <ImageView
+        android:id="@+id/my_image_view"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_glide"
+        android:layout_marginTop="12dp" />
+</RelativeLayout>
