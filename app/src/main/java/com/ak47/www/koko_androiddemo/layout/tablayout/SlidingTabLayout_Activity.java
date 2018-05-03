@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.demo2;
+package com.ak47.www.koko_androiddemo.layout.tablayout;
 
 
 import android.content.Context;

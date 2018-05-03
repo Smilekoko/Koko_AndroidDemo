@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.demo1;
+package com.ak47.www.koko_androiddemo.widget.demo1;
 
 import android.content.Intent;
 import android.speech.RecognizerIntent;

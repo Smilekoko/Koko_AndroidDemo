@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="@dimen/defaut_text_width"
+        android:layout_height="@dimen/default_text_height"
+        android:background="@color/text_background"
+        android:hint="输入测试文本" />
+
+
+    <Button
+        android:id="@+id/get_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送get请求" />
+    <Button
+        android:text="发送post请求"
+        android:layout_width="wrap_content"
+        android:id="@+id/post_button"
+        android:layout_height="wrap_content" />
+</LinearLayout>

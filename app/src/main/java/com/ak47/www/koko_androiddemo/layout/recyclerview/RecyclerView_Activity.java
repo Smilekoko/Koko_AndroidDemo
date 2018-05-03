@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.demo3;
+package com.ak47.www.koko_androiddemo.layout.recyclerview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

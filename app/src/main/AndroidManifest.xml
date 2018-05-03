@@ -3,7 +3,7 @@
     package="com.ak47.www.koko_androiddemo">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +21,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".demo1.MaterialSearchView_activity">
+        <activity android:name=".widget.demo1.MaterialSearchView_activity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -30,7 +30,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".demo2.SlidingTabLayout_Activity">
+        <activity android:name=".layout.tablayout.SlidingTabLayout_Activity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -39,7 +39,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".demo3.RecyclerView_Activity">
+        <activity android:name=".layout.recyclerview.RecyclerView_Activity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -48,7 +48,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".demo4.SwipeRefreshLayout_Activity">
+        <activity android:name=".layout.swiperefreshLayout.SwipeRefreshLayout_Activity">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
@@ -56,6 +56,14 @@
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".glide_demo.Glide_Activity">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name=".net.apache.HttpClient_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

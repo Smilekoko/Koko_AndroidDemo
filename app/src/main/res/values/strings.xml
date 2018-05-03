@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">""</string>
+    <string name="l_y_l_a">L y l a</string>
+    <string name="b_e_n">B e n</string>
+    <string name="j_e_n_n_i_e">J e n n i e</string>
+    <string name="h_e_l_l_o">H e l l o !</string>
+    <string name="todo">TODO</string>
+    <string name="koukou">蔻蔻·海克梅迪亚</string>
 
     <string-array name="query_suggestions">
         <item>Android</item>

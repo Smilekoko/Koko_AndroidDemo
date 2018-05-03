@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.demo2;
+package com.ak47.www.koko_androiddemo.layout.tablayout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
