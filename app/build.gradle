@@ -42,5 +42,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
 
     //apache httpclient dependencies
-    compile group: 'cz.msebera.android' , name: 'httpclient', version: '4.4.1.1'
+    compile group: 'cz.msebera.android', name: 'httpclient', version: '4.4.1.1'
 }
