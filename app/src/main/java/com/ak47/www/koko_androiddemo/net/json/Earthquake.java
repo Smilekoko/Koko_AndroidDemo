@@ -5,18 +5,24 @@ package com.ak47.www.koko_androiddemo.net.json;
  */
 
 public class Earthquake {
-    private String mMagnitude;
+    private Double mMagnitude;
     private String mLocation;
-    private String mDate;
+    private long mTimeInMilliseconds;
 
-    public Earthquake(String mMagnitude, String mLocation, String mDate) {
+    public Earthquake(Double mMagnitude, String mLocation, long mTimeInMilliseconds) {
         this.mMagnitude = mMagnitude;
         this.mLocation = mLocation;
-        this.mDate = mDate;
+        this.mTimeInMilliseconds = mTimeInMilliseconds;
     }
 
-    public void setmMagnitude(String mMagnitude) {
 
+
+    public void setmTimeInMilliseconds(long mTimeInMilliseconds) {
+        this.mTimeInMilliseconds = mTimeInMilliseconds;
+    }
+
+
+    public void setmMagnitude(Double mMagnitude) {
         this.mMagnitude = mMagnitude;
     }
 
@@ -24,11 +30,8 @@ public class Earthquake {
         this.mLocation = mLocation;
     }
 
-    public void setmDate(String mDate) {
-        this.mDate = mDate;
-    }
 
-    public String getmMagnitude() {
+    public Double getmMagnitude() {
         return mMagnitude;
     }
 
@@ -36,7 +39,9 @@ public class Earthquake {
         return mLocation;
     }
 
-    public String getmDate() {
-        return mDate;
+    public long getmTimeInMilliseconds() {
+        return mTimeInMilliseconds;
     }
+
+
 }

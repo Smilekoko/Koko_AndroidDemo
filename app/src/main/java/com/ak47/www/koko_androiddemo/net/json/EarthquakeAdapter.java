@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.ak47.www.koko_androiddemo.R;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -19,12 +22,14 @@ import java.util.List;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
+    private static final String LOCATION_SEPARATOR = " of ";
+
     public EarthquakeAdapter(@NonNull Context context, int resource) {
         super(context, resource);
     }
 
     public EarthquakeAdapter(@NonNull Context context, List<Earthquake> earthquakes) {
-        super(context,0, earthquakes);
+        super(context, 0, earthquakes);
     }
 
     @NonNull
@@ -36,17 +41,52 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         }
         Earthquake currentEarthquake = getItem(position);
 
-        TextView magnitude = listItemView.findViewById(R.id.magnitude);
-        magnitude.setText(currentEarthquake.getmMagnitude());
+        //十进制格式处理类
+        DecimalFormat formatter = new DecimalFormat("0.00");
+        String formattedMagnitude = formatter.format(currentEarthquake.getmMagnitude());
 
-        TextView location = listItemView.findViewById(R.id.location);
-        location.setText(currentEarthquake.getmLocation());
+        TextView magnitude = listItemView.findViewById(R.id.magnitude);
+        magnitude.setText(formattedMagnitude);
+
+        String originalLocation = currentEarthquake.getmLocation();
+        String primaryLocation;
+        String locationOffset;
+
+        if (originalLocation.contains(LOCATION_SEPARATOR)) {
+            String[] parts = originalLocation.split(LOCATION_SEPARATOR);
+            locationOffset = parts[0] + LOCATION_SEPARATOR;
+            primaryLocation = parts[1];
+        } else {
+            locationOffset = getContext().getString(R.string.near_the);
+            primaryLocation = originalLocation;
+        }
+
+        TextView primaryLocationView = listItemView.findViewById(R.id.primary_location);
+        primaryLocationView.setText(primaryLocation);
+        TextView locationOffsetView = listItemView.findViewById(R.id.location_offest);
+        locationOffsetView.setText(locationOffset);
+
+
+        Date dateObject = new Date(currentEarthquake.getmTimeInMilliseconds());
+        String formattedDate = FormatterDate(dateObject);
+        String formattedTime = FormatterTime(dateObject);
 
         TextView dateView = listItemView.findViewById(R.id.date);
-        dateView.setText(currentEarthquake.getmDate());
+        dateView.setText(formattedDate);
+
+        TextView timeView = listItemView.findViewById(R.id.time);
+        timeView.setText(formattedTime);
 
         return listItemView;
+    }
 
+    public String FormatterDate(Date dateObject) {
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("MMM DD, yyyy");
+        return dateFormatter.format(dateObject);
+    }
 
+    public String FormatterTime(Date dateObject) {
+        SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+        return timeFormat.format(dateObject);
     }
 }

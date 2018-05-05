@@ -6,6 +6,7 @@
     <string name="h_e_l_l_o">H e l l o !</string>
     <string name="todo">TODO</string>
     <string name="koukou">蔻蔻·海克梅迪亚</string>
+    <string name="near_the">Near_the</string>
 
     <string-array name="query_suggestions">
         <item>Android</item>
