@@ -5,6 +5,8 @@
     android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:divider="@null"
+    android:dividerHeight="0dp"
     android:orientation="vertical"
     tools:context="com.ak47.www.koko_androiddemo.net.json.EarthquakeActivity">
 

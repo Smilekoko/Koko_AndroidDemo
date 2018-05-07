@@ -1,7 +1,11 @@
 package com.ak47.www.koko_androiddemo.net.json;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.ak47.www.koko_androiddemo.R;
@@ -10,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +32,19 @@ public class EarthquakeActivity extends AppCompatActivity {
 
 
         ListView earthquakeList = (ListView) findViewById(R.id.list);
-        EarthquakeAdapter earthquakeAdapter = new EarthquakeAdapter(this, earthquakes);
+        final EarthquakeAdapter earthquakeAdapter = new EarthquakeAdapter(this, earthquakes);
         earthquakeList.setAdapter(earthquakeAdapter);
 
+        //设置Item监听器
+        earthquakeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Earthquake currentEarthquake = earthquakeAdapter.getItem(position);
+                Uri earthquakeUri = Uri.parse(currentEarthquake.getUrl());
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
+                startActivity(websiteIntent);
+            }
+        });
 //        jsonTraversal();
     }
 

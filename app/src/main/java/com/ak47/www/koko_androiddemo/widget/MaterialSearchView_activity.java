@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.widget.demo1;
+package com.ak47.www.koko_androiddemo.widget;
 
 import android.content.Intent;
 import android.speech.RecognizerIntent;
@@ -41,7 +41,7 @@ public class MaterialSearchView_activity extends AppCompatActivity {
         //设置搜索建议
         searchView.setSuggestions(getResources().getStringArray(R.array.query_suggestions));
         //设置声音搜索
-        searchView.setVoiceSearch(true);
+//        searchView.setVoiceSearch(true);
         searchView.setCursorDrawable(R.drawable.cursor_search_view);
 
     }

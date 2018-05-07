@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.ak47.www.koko_androiddemo.R;
 
 import java.io.IOException;
+import java.net.URLConnection;
 
 import cz.msebera.android.httpclient.HttpEntity;
 import cz.msebera.android.httpclient.HttpResponse;
@@ -45,6 +46,7 @@ public class HttpClient_activity extends AppCompatActivity {
                 get();
             }
         });
+
 
     }
 
