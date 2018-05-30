@@ -1,11 +1,8 @@
-package com.ak47.www.koko_androiddemo.structure;
+package com.ak47.www.koko_androiddemo.structure.status;
 
-import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
-import android.widget.EditText;
 
 import com.ak47.www.koko_androiddemo.R;
 
