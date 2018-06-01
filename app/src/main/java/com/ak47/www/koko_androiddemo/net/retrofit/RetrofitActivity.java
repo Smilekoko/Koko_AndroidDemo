@@ -21,15 +21,27 @@ public class RetrofitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
 
+        simpleUse();
+
+
+    }
+
+    //简单实用
+    public void simpleUse() {
         //第一步构建Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.github.com/")
-                .addConverterFactory(
-                        GsonConverterFactory.create()
-                )
-                .build();
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://api.github.com/")
+//                .addConverterFactory(
+//                        GsonConverterFactory.create()
+//                )
+//                .build();
+
         //第二步创建接口类
-        GitHubService service = retrofit.create(GitHubService.class);
+        // GitHubService service = retrofit.create(GitHubService.class);
+
+
+        //封装避免重复创建对象
+        GitHubService service = ServiceGenerator.createService(GitHubService.class);
 
         //第三步接口类调用抽象方法，返回Call类
         //https://api.github.com/users/smilekoko/repos
