@@ -94,13 +94,22 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".structure.status.StateActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".net.retrofit.RetrofitActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".net.retrofit.RetrofitActivity">
+        <activity android:name=".thread_asyn.rxjava.RxjavaSampleActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

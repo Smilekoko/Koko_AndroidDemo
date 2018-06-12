@@ -46,4 +46,11 @@ dependencies {
     compile group: 'cz.msebera.android', name: 'httpclient', version: '4.4.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    //Rxjava
+    //noinspection GradleDependency
+    compile "io.reactivex.rxjava2:rxjava:2.1.0"
+
+    //rxandroid
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 }
