@@ -2,4 +2,8 @@
 <resources>
     <dimen name="defaut_text_width">250dp</dimen>
     <dimen name="default_text_height">55dp</dimen>
+    <dimen name="default_general_margin">10dp</dimen>
+
+    <!--banner height size-->
+    <dimen name="general_banner_height">126dp</dimen>
 </resources>

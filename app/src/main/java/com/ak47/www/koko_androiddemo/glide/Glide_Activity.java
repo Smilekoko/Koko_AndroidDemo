@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.glide_demo;
+package com.ak47.www.koko_androiddemo.glide;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;

@@ -13,7 +13,8 @@ import com.ak47.www.koko_androiddemo.R;
  */
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
-    private String[] mDataset = {"android", "Unity3d", "手绘", "UR4"};
+    private String[] mDataset = {"android", "Unity3d", "手绘", "UR4", "c++","java","android", "Unity3d",
+            "手绘", "UR4", "c++","java","android", "Unity3d", "手绘", "UR4", "c++","java"};
 
 
     @Override

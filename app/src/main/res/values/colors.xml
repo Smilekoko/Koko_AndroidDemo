@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#FF92D7</color>
     <color name="colorAccent">#FF4081</color>
     <color name="text_background">#B9D2FF</color>
+    <color name="white">#FFFFFF</color>
 
 
     <!-- Color for magnitude 0 and 2 -->

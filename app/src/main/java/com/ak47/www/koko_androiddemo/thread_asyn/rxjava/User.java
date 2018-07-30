@@ -1,5 +1,11 @@
 package com.ak47.www.koko_androiddemo.thread_asyn.rxjava;
 
+
+import java.util.concurrent.Callable;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+
 /**
  * Created by 1796 on 2018/6/7.
  */
@@ -72,5 +78,14 @@ public class User {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Observable<String> getDeferObservable() {
+        return Observable.defer(new Callable<ObservableSource<? extends String>>() {
+            @Override
+            public ObservableSource<? extends String> call() throws Exception {
+                return Observable.just(firstname);
+            }
+        });
     }
 }

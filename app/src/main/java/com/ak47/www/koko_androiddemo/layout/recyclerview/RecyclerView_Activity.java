@@ -2,6 +2,7 @@ package com.ak47.www.koko_androiddemo.layout.recyclerview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -9,7 +10,7 @@ import com.ak47.www.koko_androiddemo.R;
 
 public class RecyclerView_Activity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private GridLayoutManager mLayoutManager;
     private MyRecyclerViewAdapter myRecyclerViewAdapter;
 
     @Override
@@ -20,9 +21,16 @@ public class RecyclerView_Activity extends AppCompatActivity {
 
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
-
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
+        //spanCount = 3：表示一横行显示3列
+        mLayoutManager = new GridLayoutManager(this, 4);
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            //表示该position的Item，占用该横行的几列
+            @Override
+            public int getSpanSize(int position) {
+                return 1;
+            }
+        });
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         myRecyclerViewAdapter = new MyRecyclerViewAdapter();

@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.glide_demo;
+package com.ak47.www.koko_androiddemo.glide;
 
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;

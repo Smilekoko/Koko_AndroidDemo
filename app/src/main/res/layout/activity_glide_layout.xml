@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ak47.www.koko_androiddemo.glide_demo.Glide_Activity">
+    tools:context="com.ak47.www.koko_androiddemo.glide.Glide_Activity">
 
     <TextView
         android:id="@+id/textView"

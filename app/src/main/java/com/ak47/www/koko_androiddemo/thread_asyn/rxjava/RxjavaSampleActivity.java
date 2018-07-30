@@ -8,6 +8,7 @@ import android.util.Log;
 import com.ak47.www.koko_androiddemo.R;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
@@ -27,10 +28,18 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
+import io.reactivex.observables.ConnectableObservable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.AsyncSubject;
+import io.reactivex.subjects.BehaviorSubject;
+import io.reactivex.subjects.PublishSubject;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Rxjava2的使用教程
@@ -73,6 +82,7 @@ public class RxjavaSampleActivity extends AppCompatActivity {
 //        Operators_Zip();
 //        Operators_Disposable();
 //        Operators_Take();
+//        Operators_Delay();
 //        Operators_Timer();
 //        Operators_Interval();
 //        SingleObserver();
@@ -81,14 +91,35 @@ public class RxjavaSampleActivity extends AppCompatActivity {
 //        Operators_Reduce();
 //        Operators_Buffer();
 //        Operators_Filter();
+//        Operators_Skip();
+//        Operators_Scan();
+//        Operators_Replay();
+//        Operators_Concat();
+//        Operators_Merge();
+//        Operators_Defer();
+//        Operators_Distinct();
+//        Operators_Last();
+//        Operators_ThrottleFirst();
+//        Operators_ThrottleLast();
+//        Operators_Debounce();
+//        Operators_Window();
+//        Operators_SwitchMap();
+//        PublishSubject();
+        BehaviorSubject();
+//        AsyncSubject();
+
+        //use with Retrofit
+        useWithRetrofit();
+
     }
+
 
     //基本使用流程
     public void SimpleExample() {
 
         Observable.just("koko", "shike")
-                .subscribeOn(Schedulers.io())// Run on a background thread 发送的事件的线程，一般是联网获取的数据
-                .observeOn(AndroidSchedulers.mainThread())// Be notified on the main thread 订阅的线程 处理发送的数据
+                .subscribeOn(Schedulers.io())// 在指定的Scheduler上异步地将观察者订阅到此ObservableSource。
+                .observeOn(AndroidSchedulers.mainThread())// 修改ObservableSource以在指定调度程序上执行其排放和通知
                 .subscribe(new Observer<String>() {
                     //一般调用一次
                     @Override
@@ -116,8 +147,7 @@ public class RxjavaSampleActivity extends AppCompatActivity {
     //Operators -->Map
     public void Operators_Map() {
         Observable.create(new ObservableOnSubscribe<List<ApiUser>>() {
-            //每个发送的item在被订阅时，调用关于Observer中重写的onNext onError onComplete方法的顺序
-            //这里只发送了一个List
+
             @Override
             public void subscribe(ObservableEmitter<List<ApiUser>> e) throws Exception {
                 if (!e.isDisposed())
@@ -251,6 +281,15 @@ public class RxjavaSampleActivity extends AppCompatActivity {
                 });
     }
 
+    //Operators -->Delay
+    public void Operators_Delay() {
+        Observable.just("Amit").delay(2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                // Be notified on the main thread
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getStringObserver());
+    }
+
     //Operators -->Timer
     public void Operators_Timer() {
         //eturns an Observable that emits {@code 0L} after a specified delay, and then completes.
@@ -319,18 +358,6 @@ public class RxjavaSampleActivity extends AppCompatActivity {
                 }).subscribe(getMaybeObserver());
     }
 
-    //Flowable
-    public void Flowable() {
-        Flowable<Integer> observable = Flowable.just(1, 2, 3, 4);
-        //reduce 通过应用一个累加函数，把seed和每一个item通过累加函数，最后返回最后的item累加的值
-        observable.reduce(50, new BiFunction<Integer, Integer, Integer>() {
-            @Override
-            public Integer apply(Integer integer1, Integer integer2) throws Exception {
-                return integer1 + integer2;
-            }
-        }).subscribe(getIntegerSingleObserver());
-    }
-
     //Operators-->Buffer
     public void Operators_Buffer() {
         Observable<List<String>> buffered =
@@ -385,6 +412,294 @@ public class RxjavaSampleActivity extends AppCompatActivity {
                 }).subscribe(getIntegerObserver());
     }
 
+    //Operators-->Skip
+    public void Operators_Skip() {
+        Observable.just(1, 2, 3, 4, 5)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .skip(2)
+                .subscribe(getIntegerObserver());
+    }
+
+    //Operators-->Scan
+    public void Operators_Scan() {
+        Observable.just(1, 2, 3, 4, 5)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                //每个item应用accumulator function,发送每个迭代的结果
+                .scan(new BiFunction<Integer, Integer, Integer>() {
+                    @Override
+                    public Integer apply(Integer integer1, Integer integer2) throws Exception {
+                        Log.e(TAG, "integer1:" + integer1 + "///" + "integer2:" + integer2);
+                        return integer1 + integer2;
+                    }
+                }).subscribe(getIntegerObserver());
+    }
+
+    //Operators-->Replay
+    public void Operators_Replay() {
+        //Subject类似于Observer和Observable的契约类
+        //PublishSubject:Represents an Observer and an Observable at the same time
+        //once an Observer has subscribed, emits all subsequently observed items to the subscriber.
+        PublishSubject<Integer> source = PublishSubject.create();
+
+        //ConnectableObservable和普通Observable一样，但在.connect()后才开始发送item
+        //replay(bufferSize):bufferSize表示只能保存多大数量的item，后面会覆盖前面的，一般发送的是从后往前的bufferSize个数的item
+        ConnectableObservable<Integer> connectableObservable = source.replay(3); // bufferSize = 3 to retain 3 values to replay
+        connectableObservable.connect(); // connecting the connectableObservable
+        connectableObservable.subscribe(getIntegerObserver());
+
+        source.onNext(1);
+        source.onNext(2);
+        source.onNext(3);
+        source.onNext(4);
+        source.onNext(5);
+        source.onNext(6);
+        source.onNext(7);
+        source.onComplete();
+
+        connectableObservable.subscribe(getIntegerObserver());
+    }
+
+    //Operators-->Concat
+    public void Operators_Concat() {
+        final String[] aStrings = {"A1", "A2", "A3", "A4"};
+        final String[] bStrings = {"B1", "B2", "B3"};
+
+        final Observable<String> aObservable = Observable.fromArray(aStrings);
+        final Observable<String> bObservable = Observable.fromArray(bStrings);
+
+        //Returns an Observable that emits the items emitted by two ObservableSources,
+        // one after the other, without interleaving them.
+        Observable.concat(aObservable, bObservable)
+                .subscribe(getStringObserver());
+    }
+
+    //Operators-->Merge
+    public void Operators_Merge() {
+        final String[] aStrings = {"A1", "A2", "A3", "A4"};
+        final String[] bStrings = {"B1", "B2", "B3"};
+
+        final Observable<String> aObservable = Observable.fromArray(aStrings);
+        final Observable<String> bObservable = Observable.fromArray(bStrings);
+
+        //merge合并Observable，不按顺序
+        Observable.merge(aObservable, bObservable)
+                .subscribe(getStringObserver());
+    }
+
+    //Operators-->Defer
+    public void Operators_Defer() {
+        User user = new User();
+        Observable<String> firstnameDeferObservable = user.getDeferObservable();
+        //Even if we are setting the brand after creating Observable
+        //we can get the firstname as koko
+        //If we had not user Defer,we would have got null as the koko
+        user.setFirstname("koko");
+        firstnameDeferObservable.subscribe(getStringObserver());
+
+    }
+
+    //Operators-->Distinct
+    public void Operators_Distinct() {
+        Observable.just(1, 2, 1, 1, 2, 3, 4, 6, 4)
+                //suppresses duplicate items emitted by the source Observable.
+                .distinct()
+                .subscribe(getIntegerObserver());
+    }
+
+    //Operators-->Last
+    public void Operators_Last() {
+        Observable.just("A1", "A2", "A3", "A4", "A5", "A6")
+                //emits only the last item emitted by the Observable.
+                .last("A1")// the default item ("A1") to emit if the source ObservableSource is empty
+                .subscribe(getSingleObserver());
+    }
+
+    //Operators-->ThrottleFirst
+    public void Operators_ThrottleFirst() {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                Thread.sleep(0);
+                e.onNext(1);// deliver
+                e.onNext(2); // skip
+                Thread.sleep(505);
+                e.onNext(3);// deliver
+                Thread.sleep(99);
+                e.onNext(4);// skip
+                Thread.sleep(100);
+                e.onNext(5);// skip
+                e.onNext(6);// skip
+                Thread.sleep(305);
+                e.onNext(7);// deliver
+                Thread.sleep(510);
+                e.onComplete();
+            }
+        })
+                /*
+                 * the Observable that results from this operator will emit no item for that sampling period.
+                 * but emit first item in the sampling peroid
+                 */
+                .throttleFirst(500, TimeUnit.MILLISECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getIntegerObserver());
+    }
+
+    //Operators-->ThrottleLast
+    public void Operators_ThrottleLast() {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                Thread.sleep(0);
+                e.onNext(1);// skip
+                e.onNext(2);// deliver
+                Thread.sleep(505);
+                e.onNext(3);// skip
+                Thread.sleep(99);
+                e.onNext(4);// skip
+                Thread.sleep(100);
+                e.onNext(5);// skip
+                e.onNext(6);// deliver
+                Thread.sleep(305);
+                e.onNext(7); // deliver
+                Thread.sleep(510);
+                e.onComplete();
+            }
+        })
+                /*
+                 *emit the most recent items emitted by an Observable within periodic time intervals
+                 */
+                .throttleLast(500, TimeUnit.MILLISECONDS)
+                // Run on a background thread
+                .subscribeOn(Schedulers.io())
+                // Be notified on the main thread
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getIntegerObserver());
+    }
+
+    //Operators-->Debounce
+    public void Operators_Debounce() {
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                e.onNext(1);// skip
+                Thread.sleep(400);
+
+                e.onNext(2);// deliver
+                Thread.sleep(505);//超过500毫秒所以3没覆盖2
+
+                e.onNext(3);// skip
+                Thread.sleep(100);//为超过500毫秒，所以4覆盖3发送
+                e.onNext(4);// deliver
+
+                Thread.sleep(605);
+                e.onNext(5);// deliver
+                Thread.sleep(510);
+                e.onComplete();
+            }
+        })
+                /*
+                 *发送一个item后间隔时间，这段时间中发送的其他item，会让之前的item被drop
+                 */
+                .debounce(500, TimeUnit.MILLISECONDS)
+                // Run on a background thread
+                .subscribeOn(Schedulers.io())
+                // Be notified on the main thread
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getIntegerObserver());
+    }
+
+    //Operators-->Window
+    public void Operators_Window() {
+        Observable.interval(1, TimeUnit.SECONDS)
+                //发送的最大值12
+                .take(12)
+                //每隔一段时间从source ObservableSource收集item返回一个Observable
+                .window(3, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getConsumer());
+    }
+
+    //Operators-->SwitchMap
+    public void Operators_SwitchMap() {
+        Observable.just(1, 2, 3, 4, 5, 6)
+                //为 每个 发送的item应用一个函数，来生成一个内部Observable
+                //每当源Observable发出一个新项目时，它将取消订阅并停止镜像从先前发出的项目生成的Observable，并开始仅镜像当前的项目。
+                .switchMap(new Function<Integer, ObservableSource<String>>() {
+                    @Override
+                    public ObservableSource<String> apply(Integer integer) throws Exception {
+                        int delay = new Random().nextInt(2);
+
+                        return Observable.just(integer.toString() + "x")
+                                .delay(delay, TimeUnit.SECONDS, Schedulers.io());
+                    }
+                }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(getStringObserver());
+    }
+
+    //Flowable
+    public void Flowable() {
+        Flowable<Integer> observable = Flowable.just(1, 2, 3, 4);
+        //reduce 通过应用一个累加函数，把seed和每一个item通过累加函数，最后返回最后的item累加的值
+        observable.reduce(50, new BiFunction<Integer, Integer, Integer>() {
+            @Override
+            public Integer apply(Integer integer1, Integer integer2) throws Exception {
+                return integer1 + integer2;
+            }
+        }).subscribe(getIntegerSingleObserver());
+    }
+
+    //PublishSubject
+    public void PublishSubject() {
+        //PublishSubject仅在订阅时间后向观察者发出由源Observable发出的项目。
+        PublishSubject<Integer> source = PublishSubject.create();
+        source.subscribe(getIntegerObserver1());
+        source.onNext(1);
+        source.onNext(2);
+        source.onNext(3);
+        Log.e(TAG, "第二次订阅");
+        source.subscribe(getIntegerObserver2());
+        source.onNext(4);
+        source.onComplete();
+    }
+
+    //BehaviorSubject
+    public void BehaviorSubject() {
+        BehaviorSubject<Integer> source = BehaviorSubject.create();
+        source.subscribe(getIntegerObserver1());// it will get 1, 2, 3, 4 and onComplete
+        source.onNext(1);
+        source.onNext(2);
+        source.onNext(3);
+        Log.e(TAG, "订阅第二个Observe");
+        //it will emit 3(last emitted), 4 and onComplete for second observer also.
+        source.subscribe(getIntegerObserver2());
+        source.onNext(4);
+        source.onComplete();
+
+    }
+
+    //AsyncSubject
+    public void AsyncSubject() {
+        /*
+        * An AsyncSubject emits the last value (and only the last value) emitted by the source Observable， and only after that source Observable completes
+        * If the source Observable does not emit any values, the AsyncSubject also completes without emitting any values.)
+        */
+        AsyncSubject<Integer> source = AsyncSubject.create();
+        source.subscribe(getIntegerObserver1());
+        source.onNext(1);
+        source.onNext(2);
+        source.onNext(3);
+        Log.e(TAG, "订阅第二个Observe");
+        source.subscribe(getIntegerObserver2());
+
+        source.onNext(4);
+        source.onComplete();
+    }
+
     private Observer<Integer> getIntegerObserver() {
         return new Observer<Integer>() {
             @Override
@@ -409,8 +724,80 @@ public class RxjavaSampleActivity extends AppCompatActivity {
         };
     }
 
+    private Observer<Integer> getIntegerObserver1() {
+        return new Observer<Integer>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.e(TAG, " onSubscribe1 : " + d.isDisposed());
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                Log.e(TAG, " onNext1 : value : " + integer);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, " onError1 : " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e(TAG, " onComplete1");
+            }
+        };
+    }
+
+    private Observer<Integer> getIntegerObserver2() {
+        return new Observer<Integer>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.e(TAG, " onSubscribe2 : " + d.isDisposed());
+            }
+
+            @Override
+            public void onNext(Integer integer) {
+                Log.e(TAG, " onNext2 : value : " + integer);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, " onError2 : " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e(TAG, " onComplete2");
+            }
+        };
+    }
+
+    private Observer<String> getStringObserver() {
+        return new Observer<String>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                Log.e(TAG, " onSubscribe : " + d.isDisposed());
+            }
+
+            @Override
+            public void onNext(String s) {
+                Log.e(TAG, " onNext : value : " + s);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, " onError : " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e(TAG, " onComplete");
+            }
+        };
+    }
+
     private Observable<? extends Long> getIntervalObservable() {
-        //设定初始时间和间隔时间发送item,发送的是Long
+        //设定初始延迟时间和间隔时间发送item,发送的是Long
         return Observable.interval(0, 4, TimeUnit.SECONDS);
     }
 
@@ -537,6 +924,57 @@ public class RxjavaSampleActivity extends AppCompatActivity {
                 Log.e(TAG, " onComplete");
             }
         };
+    }
+
+    //Consumer消费者
+    public Consumer<Observable<Long>> getConsumer() {
+        return new Consumer<Observable<Long>>() {
+            @Override
+            public void accept(Observable<Long> longObservable) throws Exception {
+                Log.e(TAG, "Sub Divide begin....+");
+                longObservable
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Consumer<Long>() {
+                            @Override
+                            public void accept(Long aLong) throws Exception {
+                                Log.e(TAG, "Next:" + aLong);
+                            }
+                        });
+            }
+        };
+    }
+
+    //rxjava和Retrofit一起使用的例子
+    public void useWithRetrofit() {
+
+        HttpMethods.getInstance().getJoke(new Observer<List<MyJoke>>() {
+            Disposable d;
+
+            @Override
+            public void onSubscribe(Disposable d) {
+                this.d = d;
+            }
+
+            @Override
+            public void onNext(List<MyJoke> myJokes) {
+                for (MyJoke joke : myJokes) {
+                    Log.e(TAG, "获取数据完成" + joke.getContent());
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "error" + e.toString());
+            }
+
+            @Override
+            public void onComplete() {
+                Log.e(TAG, "onComplete");
+            }
+        });
+
+
     }
 
     @Override
