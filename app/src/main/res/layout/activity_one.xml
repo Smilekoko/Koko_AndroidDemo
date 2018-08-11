@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ak47.www.koko_androiddemo.MainActivity">
-
-    <com.baidu.mapapi.map.MapView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    tools:context=".component.activity.One_Activity">
+<Button
+    android:id="@+id/button1"
+    android:text="启动另一个activity"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
 </android.support.constraint.ConstraintLayout>

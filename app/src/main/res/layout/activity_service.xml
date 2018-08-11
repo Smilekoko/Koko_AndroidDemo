@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ak47.www.koko_androiddemo.MainActivity">
+    tools:context=".component.service.Service_Activity">
 
-    <com.baidu.mapapi.map.MapView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="startService()"
+        android:textAllCaps="false" />
 </android.support.constraint.ConstraintLayout>
