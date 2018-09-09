@@ -41,4 +41,6 @@
         <item name="android:hint">@string/search_hint</item>
     </style>
 
+
+
 </resources>

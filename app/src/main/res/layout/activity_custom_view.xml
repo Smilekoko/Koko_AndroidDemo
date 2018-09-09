@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:hc="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".widget.custom_view.CustomViewActivity">
+
+    <!--<com.ak47.www.koko_androiddemo.widget.CircleImageView-->
+    <!--android:layout_width="60dp"-->
+    <!--app:border_width="2dp"-->
+    <!--android:layout_gravity="start|top"-->
+    <!--app:border_color="#9AFF97"-->
+    <!--android:src="@drawable/ico_user_default"-->
+    <!--android:layout_height="60dp" />-->
+
+    <!--这里自定义的属性值可以设置下命名空间，固定值区"http://schemas.android.com/apk/res-auto"-->
+    <!--<com.ak47.www.koko_androiddemo.widget.custom_view.TestView1-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="150dp"-->
+    <!--android:background="#FF6C56"-->
+    <!--hc:default_size="100dp" />-->
+
+    <com.ak47.www.koko_androiddemo.widget.custom_view.TestViewGroup1
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFBFA0">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="btn" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="btn" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="btn" />
+    </com.ak47.www.koko_androiddemo.widget.custom_view.TestViewGroup1>
+</LinearLayout>

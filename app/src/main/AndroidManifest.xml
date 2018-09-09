@@ -54,17 +54,22 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="udC47CcQ57uIEuarbkcHUxAvOhlz48AF" />
 
-        <!--四大组件之activity-->
-        <activity android:name=".component.activity.One_Activity"/>
+        <!-- 四大组件之activity -->
+        <activity android:name=".component.activity.One_Activity" />
         <activity android:name=".component.activity.Two_Activity" />
 
+
+        <!-- 四大组件之service -->
+        <activity android:name=".component.service.Service_Activity" />
         <service
             android:name=".component.service.One_Service"
             android:enabled="true"
             android:exported="true" />
+        <!--自定义View-->
+        <activity android:name=".widget.custom_view.CustomViewActivity" />
 
-        <!--四大组件之service-->
-        <activity android:name=".component.service.Service_Activity">
+        <!--Fragment-->
+        <activity android:name=".component.fragment.demo1.AndroidMeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
