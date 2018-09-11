@@ -69,7 +69,9 @@
         <activity android:name=".widget.custom_view.CustomViewActivity" />
 
         <!--Fragment-->
-        <activity android:name=".component.fragment.demo1.AndroidMeActivity">
+        <!--demo1-->
+        <activity android:name=".component.fragment.demo1.AndroidMeActivity" />
+        <activity android:name=".component.fragment.demo1.MasterListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Display the static master list fragment -->
+<!--name直接来指定fragment都不需要再activity中添加了-->
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/master_list_fragment"
+    android:name="com.ak47.www.koko_androiddemo.component.fragment.demo1.MasterListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

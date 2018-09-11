@@ -23,7 +23,7 @@ public class BodyPartFragment extends Fragment {
     public static final String IMAGE_ID_LIST = "iamge_ids";
     public static final String LIST_INDEX = "list_index";
 
-    public void setmImageIds(List<Integer> mImageIds) {
+    public void setImageIds(List<Integer> mImageIds) {
         this.mImageIds = mImageIds;
     }
 
@@ -75,4 +75,9 @@ public class BodyPartFragment extends Fragment {
         }
         return view;
     }
+
+    public void setListIndex(int index) {
+        mListIndex = index;
+    }
+
 }
