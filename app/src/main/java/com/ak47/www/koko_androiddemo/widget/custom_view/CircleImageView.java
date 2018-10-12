@@ -1,4 +1,4 @@
-package com.ak47.www.koko_androiddemo.widget;
+package com.ak47.www.koko_androiddemo.widget.custom_view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

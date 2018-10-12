@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import com.ak47.www.koko_androiddemo.R;
 
 public class RecyclerView_Activity extends AppCompatActivity {
+
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private MyRecyclerViewAdapter myRecyclerViewAdapter;

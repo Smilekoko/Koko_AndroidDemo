@@ -45,7 +45,6 @@ public class AndroidMeActivity extends AppCompatActivity {
         //只有Fragment保存了状态Activity的savedInstanceState就不为空，原因不清楚
         if (savedInstanceState == null) {
             Log.e(TAG, "Android没有保存状态");
-            // TODO (5) Create a new BodyPartFragment instance and display it using the FragmentManager
             BodyPartFragment headFragment = new BodyPartFragment();
             headFragment.setImageIds(AndroidImageAssets.getHeads());
             // Get the correct index to access in the array of head images from the intent
