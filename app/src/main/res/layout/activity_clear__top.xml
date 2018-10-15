@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".component.activity.launchMode.CLEAR_TOPActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/FLAG_ACTIVITY_CLEAR_TOP_String" />
+
+
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_startOne"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-188dp"
+        android:hint="你要保存的文本"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_startOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="188dp"
+        android:text="启动One_activity" />
+
+</RelativeLayout>

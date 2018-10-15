@@ -9,13 +9,23 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ak47.www.koko_androiddemo.R;
+import com.ak47.www.koko_androiddemo.component.activity.launchMode.CLEAR_TOPActivity;
+import com.ak47.www.koko_androiddemo.component.activity.launchMode.TaskAffinityActivity;
+import com.ak47.www.koko_androiddemo.component.activity.launchMode.SingleTopActivity;
+import com.ak47.www.koko_androiddemo.component.ipc.parcelable.Hobby;
+import com.ak47.www.koko_androiddemo.component.ipc.parcelable.ParcelableActivity;
+import com.ak47.www.koko_androiddemo.component.ipc.parcelable.Person;
+
+import java.util.ArrayList;
 
 /**
  * 四大组件之activity
  */
 public class One_Activity extends AppCompatActivity {
     private String TAG = "One_Activity";
-    private Button button1;
+    private Button button1, button2, button3, button4, button5;
+    private ArrayList<Hobby> hobbies;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +33,11 @@ public class One_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
         button1 = (Button) findViewById(R.id.button1);
+        button2 = (Button) findViewById(R.id.button2);
+        button3 = (Button) findViewById(R.id.button3);
+        button4 = (Button) findViewById(R.id.button4);
+        button5 = (Button) findViewById(R.id.button5);
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +45,56 @@ public class One_Activity extends AppCompatActivity {
                 ComponentName component = new ComponentName(One_Activity.this, Two_Activity.class);
                 intent.setComponent(component);
                 startActivity(intent);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                ComponentName component = new ComponentName(One_Activity.this, TaskAffinityActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setComponent(component);
+                startActivity(intent);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                ComponentName component = new ComponentName(One_Activity.this, SingleTopActivity.class);
+                intent.setComponent(component);
+                startActivity(intent);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                ComponentName component = new ComponentName(One_Activity.this, CLEAR_TOPActivity.class);
+                intent.setComponent(component);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setAction("FLAG_ACTIVITY_CLEAR_TOP tag启动");
+                startActivity(intent);
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //传递
+                Hobby hobby1 = new Hobby("唱歌");
+                Hobby hobby2 = new Hobby("跳舞");
+                hobbies = new ArrayList<>();
+                hobbies.add(hobby1);
+                hobbies.add(hobby2);
+                Person person = new Person("王雷", 23, false, new Hobby("敲代码"), hobbies);
+                Intent intent = new Intent(One_Activity.this, ParcelableActivity.class);
+                intent.putExtra("person_data", person);
+                startActivity(intent);
+
             }
         });
     }

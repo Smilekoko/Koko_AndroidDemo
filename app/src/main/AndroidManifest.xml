@@ -34,7 +34,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
 
@@ -46,6 +45,7 @@
 
         <!-- 百度地图key -->
         <activity android:name=".sdk.baidumap.BaiduMapActivity" />
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="udC47CcQ57uIEuarbkcHUxAvOhlz48AF" />
@@ -56,11 +56,20 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".component.activity.Two_Activity" />
+        <!-- launchMode Task -->
+        <activity
+            android:name=".component.activity.launchMode.TaskAffinityActivity"
+            android:taskAffinity="com.kook_TaskAffinity.task" />
+        <activity
+            android:name=".component.activity.launchMode.SingleTopActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".component.activity.launchMode.CLEAR_TOPActivity"
+            android:launchMode="singleTop" />
 
         <!-- 四大组件之service -->
         <activity android:name=".component.service.Service_Activity" />
@@ -77,31 +86,31 @@
         <activity android:name=".component.fragment.demo1.AndroidMeActivity" />
         <activity android:name=".component.fragment.demo1.MasterListActivity" />
 
-        <!--常用布局控件-->
+        <!-- 常用布局控件 -->
         <activity android:name=".layout.recyclerview.RecyclerView_Activity" />
         <activity android:name=".layout.swiperefreshLayout.SwipeRefreshLayout_Activity" />
 
-        <!-- 自定义View和widget-->
+        <!-- 自定义View和widget -->
         <activity android:name=".widget.custom_view.CustomViewActivity" />
         <activity android:name=".widget.banner.BannerViewActivity" />
         <activity android:name=".widget.MaterialSearchView_activity" />
         <activity android:name=".layout.tablayout.SlidingTabLayout_Activity" />
 
-        <!--图像-->
+        <!-- 图像 -->
         <activity android:name=".glide.Glide_Activity" />
 
-        <!--SQLlite数据库使用-->
+        <!-- SQLlite数据库使用 -->
         <activity android:name=".sqllite.SQLliteActivity" />
 
-        <!--网络请求-->
+        <!-- 网络请求 -->
         <activity android:name=".net.apache.HttpClient_activity" />
         <activity android:name=".net.retrofit.RetrofitActivity" />
-        <!--数据解析-->
+        <!-- 数据解析 -->
         <activity android:name=".net.json.EarthquakeActivity" />
-        <!--线程-->
+        <!-- 线程 -->
         <activity android:name=".thread_asyn.asynctask.AsyncTask_activity" />
         <activity android:name=".thread_asyn.rxjava.RxjavaSampleActivity" />
+        <activity android:name=".component.ipc.parcelable.ParcelableActivity"></activity>
     </application>
-
 
 </manifest>

@@ -36,4 +36,14 @@
     <string name="start_activity">输入你要启动的activity</string>
     <string name="star">star</string>
     <string name="party_size_hint">Party size (max 99)</string>
+    <string name="taskAffinityString">该activity设置了taskAffinity属性,
+        如果加载某个Activity的intent，Flag被设置成FLAG_ACTIVITY_NEW_TASK时，
+        它会首先检查是否存在与自己taskAffinity相同的Task，如果存在，那么它会直接宿主到该Task中，如果不存在则重新创建Task。
+    </string>
+    <string name="singleTopString">如果活动的实例已存在于当前任务的顶部，则系统通过调用其onNewIntent()方法将意图路由到该实例，而不是创建活动的新实例。活动可以多次实例化，每个实例可以属于不同的任务，一个任务可以有多个实例（但只有当后端堆栈顶部的活动不是活动的现有实例时）。</string>
+    <string name="FLAG_ACTIVITY_CLEAR_TOP_String">
+        清空task中，该活动上面的活动,
+        如果它已将其启动模式声明为“多个”（默认值）并且您没有设置FLAG_ACTIVITY_SINGLE_TOP相同的意图，那么它将被完成并重新创建;
+        对于所有其他启动模式或如果FLAG_ACTIVITY_SINGLE_TOP设置，则此Intent将被传递到当前实例的onNewIntent（）。
+    </string>
 </resources>

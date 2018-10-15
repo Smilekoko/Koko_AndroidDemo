@@ -38,7 +38,7 @@ public class Two_Activity extends AppCompatActivity {
     public void onBackPressed() {
         //如果重写该onBackPressed() 方法，
         // 我们仍强烈建议您super.onBackPressed()从重写方法调用 。否则，后退按钮行为可能会对用户产生不良影响。
-        super.onBackPressed();
+//        super.onBackPressed();
         showNormalDialog();
     }
 
