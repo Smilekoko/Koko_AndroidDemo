@@ -2,16 +2,17 @@ package com.ak47.www.koko_androiddemo.component.activity;
 
 import android.content.ComponentName;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.ak47.www.koko_androiddemo.R;
 import com.ak47.www.koko_androiddemo.component.activity.launchMode.CLEAR_TOPActivity;
-import com.ak47.www.koko_androiddemo.component.activity.launchMode.TaskAffinityActivity;
 import com.ak47.www.koko_androiddemo.component.activity.launchMode.SingleTopActivity;
+import com.ak47.www.koko_androiddemo.component.activity.launchMode.TaskAffinityActivity;
+import com.ak47.www.koko_androiddemo.component.ipc.bundle.BundleActivity;
 import com.ak47.www.koko_androiddemo.component.ipc.parcelable.Hobby;
 import com.ak47.www.koko_androiddemo.component.ipc.parcelable.ParcelableActivity;
 import com.ak47.www.koko_androiddemo.component.ipc.parcelable.Person;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  */
 public class One_Activity extends AppCompatActivity {
     private String TAG = "One_Activity";
-    private Button button1, button2, button3, button4, button5;
+    private Button button1, button2, button3, button4, button5, button6;
     private ArrayList<Hobby> hobbies;
 
 
@@ -37,6 +38,7 @@ public class One_Activity extends AppCompatActivity {
         button3 = (Button) findViewById(R.id.button3);
         button4 = (Button) findViewById(R.id.button4);
         button5 = (Button) findViewById(R.id.button5);
+        button6 = (Button) findViewById(R.id.button6);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +97,20 @@ public class One_Activity extends AppCompatActivity {
                 intent.putExtra("person_data", person);
                 startActivity(intent);
 
+            }
+        });
+
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("str", "字符数据");
+                bundle.putInt("int", 1);
+                Intent intent = new Intent();
+                ComponentName component = new ComponentName(One_Activity.this, BundleActivity.class);
+                intent.setComponent(component);
+                intent.putExtra("bundle", bundle);
+                startActivity(intent);
             }
         });
     }

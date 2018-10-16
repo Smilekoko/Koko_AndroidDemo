@@ -110,7 +110,8 @@
         <!-- 线程 -->
         <activity android:name=".thread_asyn.asynctask.AsyncTask_activity" />
         <activity android:name=".thread_asyn.rxjava.RxjavaSampleActivity" />
-        <activity android:name=".component.ipc.parcelable.ParcelableActivity"></activity>
+        <activity android:name=".component.ipc.parcelable.ParcelableActivity" />
+        <activity android:name=".component.ipc.bundle.BundleActivity"></activity>
     </application>
 
 </manifest>
