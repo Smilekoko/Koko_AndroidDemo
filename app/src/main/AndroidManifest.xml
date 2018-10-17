@@ -52,13 +52,7 @@
 
         <!-- 四大组件之activity -->
         <activity android:name=".structure.status.StateActivity" />
-        <activity android:name=".component.activity.One_Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".component.activity.One_Activity" />
         <activity android:name=".component.activity.Two_Activity" />
         <!-- launchMode Task -->
         <activity
@@ -95,6 +89,16 @@
         <activity android:name=".widget.banner.BannerViewActivity" />
         <activity android:name=".widget.MaterialSearchView_activity" />
         <activity android:name=".layout.tablayout.SlidingTabLayout_Activity" />
+        <activity android:name=".widget.spinner.SpinnerActivity" />
+        <!--Reource type-->
+        <!--drawable-->
+        <activity android:name=".resource.drawble.LayerDrawableActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!-- 图像 -->
         <activity android:name=".glide.Glide_Activity" />
@@ -111,7 +115,7 @@
         <activity android:name=".thread_asyn.asynctask.AsyncTask_activity" />
         <activity android:name=".thread_asyn.rxjava.RxjavaSampleActivity" />
         <activity android:name=".component.ipc.parcelable.ParcelableActivity" />
-        <activity android:name=".component.ipc.bundle.BundleActivity"></activity>
+        <activity android:name=".component.ipc.bundle.BundleActivity" />
     </application>
 
 </manifest>

@@ -46,4 +46,15 @@
         如果它已将其启动模式声明为“多个”（默认值）并且您没有设置FLAG_ACTIVITY_SINGLE_TOP相同的意图，那么它将被完成并重新创建;
         对于所有其他启动模式或如果FLAG_ACTIVITY_SINGLE_TOP设置，则此Intent将被传递到当前实例的onNewIntent（）。
     </string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>

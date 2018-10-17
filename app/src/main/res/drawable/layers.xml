@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--drawable 的图层列表-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@drawable/android_red"
+            android:gravity="center" />
+    </item>
+    <item android:top="30dp" android:left="30dp">
+        <bitmap android:src="@drawable/android_green"
+            android:gravity="center" />
+    </item>
+    <item android:top="60dp" android:left="60dp">
+        <bitmap android:src="@drawable/android_blue"
+            android:gravity="center" />
+    </item>
+</layer-list>
