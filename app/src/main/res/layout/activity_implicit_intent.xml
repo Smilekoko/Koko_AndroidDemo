@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".component.activity.interact_with_app.ImplicitIntentActivity">
+
+    <Button
+        android:id="@+id/btn_DIAL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="隐含Intent启动拨打电话"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_DIAL"
+        android:layout_alignParentStart="true"
+        android:text="隐含Intent查看网页"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_web"
+        android:layout_alignParentStart="true"
+        android:text="隐含Intent查看地图"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_result_StartActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_map"
+        android:layout_alignParentStart="true"
+        android:text="获取Activity 的结果"
+        android:textAllCaps="false" />
+</RelativeLayout>

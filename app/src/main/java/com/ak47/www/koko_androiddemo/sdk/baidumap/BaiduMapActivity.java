@@ -27,17 +27,19 @@ public class BaiduMapActivity extends AppCompatActivity {
         mMapView = (MapView) findViewById(R.id.bmapView);
         button1 = (Button) findViewById(R.id.changeType);
         button2 = (Button) findViewById(R.id.mylocation);
+        mBaiduMap = mMapView.getMap();
+        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mBaiduMap = mMapView.getMap();
-                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            //这需要定位的sdk
+                //这需要定位的sdk
             }
         });
     }

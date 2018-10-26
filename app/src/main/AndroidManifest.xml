@@ -24,15 +24,17 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <!-- 用于读取手机当前的状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 读取；练习人 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:name=".DemoApplication"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
 
         <!-- <intent-filter> -->
         <!-- <action android:name="android.intent.action.MAIN" /> -->
@@ -64,6 +66,10 @@
         <activity
             android:name=".component.activity.launchMode.CLEAR_TOPActivity"
             android:launchMode="singleTop" />
+        <!-- interact with other apps -->
+        <activity android:name=".component.activity.interact_with_app.ImplicitIntentActivity">
+
+        </activity>
 
         <!-- 四大组件之service -->
         <activity android:name=".component.service.Service_Activity" />
@@ -90,15 +96,9 @@
         <activity android:name=".widget.MaterialSearchView_activity" />
         <activity android:name=".layout.tablayout.SlidingTabLayout_Activity" />
         <activity android:name=".widget.spinner.SpinnerActivity" />
-        <!--Reource type-->
-        <!--drawable-->
-        <activity android:name=".resource.drawble.LayerDrawableActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!-- Reource type -->
+        <!-- drawable -->
+        <activity android:name=".resource.drawble.LayerDrawableActivity" />
 
         <!-- 图像 -->
         <activity android:name=".glide.Glide_Activity" />
@@ -116,6 +116,13 @@
         <activity android:name=".thread_asyn.rxjava.RxjavaSampleActivity" />
         <activity android:name=".component.ipc.parcelable.ParcelableActivity" />
         <activity android:name=".component.ipc.bundle.BundleActivity" />
+        <activity android:name=".thread_asyn.loader.LoaderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
