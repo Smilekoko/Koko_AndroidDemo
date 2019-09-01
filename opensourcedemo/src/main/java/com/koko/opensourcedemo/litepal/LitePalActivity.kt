@@ -17,7 +17,7 @@ class LitePalActivity : AppCompatActivity() {
         setContentView(com.koko.opensourcedemo.R.layout.activity_lite_pal)
 
         //配置完成后，指定的数据库表就会自动被创建。比如获取SQLiteDatabase示例：
-        val db = LitePal.getDatabase()
+//        val db = LitePal.getDatabase()
 //        insert()
 //        query()
 //        update()

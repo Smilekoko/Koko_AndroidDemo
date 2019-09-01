@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context=".component.activity.multi_window.MultiWindowActivity1">
+    tools:context=".component.activity.multiWindow.MultiWindowActivity1">
 
     <LinearLayout
         android:layout_width="match_parent"

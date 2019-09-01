@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".widget.spinner.SpinnerActivity">
+    tools:context=".useInterface.widget.spinner.SpinnerActivity">
 
     <TextView
         android:id="@+id/text"
@@ -13,7 +12,8 @@
         android:gravity="center"
         android:text="测试Spanner控件"
         android:textColor="@android:color/black"
-        android:textSize="36dp" />
+        android:textSize="36sp"
+        tools:ignore="HardcodedText" />
 
     <Spinner
         android:id="@+id/planets_spinner"

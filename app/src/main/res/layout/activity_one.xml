@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".component.activity.One_Activity">
+    tools:context=".component.activity.OneActivity"
+    tools:ignore="HardcodedText">
 
     <Button
         android:id="@+id/button1"
@@ -18,8 +18,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/button1"
+        android:layout_alignParentStart="true"
         android:text="测试taskAffinity属性"
         android:textAllCaps="false"
         tools:layout_editor_absoluteX="143dp"
@@ -29,8 +29,8 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/button2"
+        android:layout_alignParentStart="true"
         android:text="测试launchMode的SingleTop属性"
         android:textAllCaps="false" />
 
@@ -38,8 +38,8 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/button3"
+        android:layout_alignParentStart="true"
         android:text="测试FLAG_ACTIVITY_CLEAR_TOP tag"
         android:textAllCaps="false" />
 
@@ -47,8 +47,8 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/button4"
+        android:layout_alignParentStart="true"
         android:text="测试Parcelable携带数据"
         android:textAllCaps="false" />
 
@@ -56,8 +56,8 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/button5"
+        android:layout_alignParentStart="true"
         android:text="测试Bundle携带数据"
         android:textAllCaps="false" />
 </RelativeLayout>

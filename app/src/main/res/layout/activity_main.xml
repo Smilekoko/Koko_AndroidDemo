@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ak47.www.koko_androiddemo.MainActivity">
+    tools:context="com.koko.www.androiddemo.MainActivity">
 
-    <!--<com.baidu.mapapi.map.MapView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"/>-->
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:singleLine="false"
+        android:text="@string/skill_android"
+        android:textColor="#FF6949"
+        android:textSize="16sp" />
 </RelativeLayout>

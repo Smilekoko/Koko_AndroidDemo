@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
+    tools:context=".useInterface.widget.appbar.CollapsingToolbarLayoutActivity">
+
+    <!--和ToolBar一起使用-->
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="250dp">-->
+
+    <!--<com.google.android.material.appbar.CollapsingToolbarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:title="Title"-->
+    <!--app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">-->
+
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--android:background="#FF925D"-->
+    <!--app:title="title" />-->
+    <!--</com.google.android.material.appbar.CollapsingToolbarLayout>-->
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
+
+
+    <!--contentScrim属性的测试-->
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="250dp"-->
+    <!--android:fitsSystemWindows="true">-->
+
+    <!--<com.google.android.material.appbar.CollapsingToolbarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:minHeight="100dp"-->
+    <!--app:contentScrim="#D0D1FF"-->
+    <!--app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"-->
+    <!--app:title="collapsing title">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:scaleType="centerCrop"-->
+    <!--android:src="@drawable/bili_default_image_tv"-->
+    <!--tools:ignore="ContentDescription" />-->
+
+    <!--<androidx.appcompat.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--app:layout_collapseMode="pin"-->
+    <!--app:title="title" />-->
+    <!--</com.google.android.material.appbar.CollapsingToolbarLayout>-->
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
+
+
+    <!--<com.google.android.material.appbar.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="250dp"-->
+        <!--android:background="@color/white"-->
+        <!--android:fitsSystemWindows="true"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.Light"-->
+        <!--app:elevation="0dp">-->
+
+        <!--<com.google.android.material.appbar.CollapsingToolbarLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:fitsSystemWindows="true"-->
+            <!--android:minHeight="100dp"-->
+            <!--app:contentScrim="@color/white"-->
+            <!--app:layout_scrollFlags="scroll|exitUntilCollapsed"-->
+            <!--app:statusBarScrim="#FF608F"-->
+            <!--app:title="collapsing title">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:scaleType="centerCrop"-->
+                <!--android:src="@drawable/bili_default_image_tv"-->
+                <!--tools:ignore="ContentDescription" />-->
+
+            <!--<androidx.appcompat.widget.Toolbar-->
+                <!--android:id="@+id/toolbar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="?attr/actionBarSize"-->
+                <!--android:fitsSystemWindows="true"-->
+                <!--app:layout_collapseMode="pin"-->
+                <!--app:title="title" />-->
+        <!--</com.google.android.material.appbar.CollapsingToolbarLayout>-->
+    <!--</com.google.android.material.appbar.AppBarLayout>-->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/CollapsingToolbarLayout_text" />
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

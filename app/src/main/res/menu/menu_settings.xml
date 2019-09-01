@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 这里的id表示该menu被点击时候将跳转到的Fragment -->
+    <item
+        android:id="@id/blankFragment"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="设置界面"
+        tools:ignore="HardcodedText" />
+</menu>

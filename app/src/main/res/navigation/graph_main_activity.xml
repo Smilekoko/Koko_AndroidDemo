@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_main_activity.xml"
+    app:startDestination="@id/navMainFragment">
+
+    <fragment
+        android:id="@+id/navMainFragment"
+        android:name="com.koko.www.androiddemo.navigation.NavMainFragment"
+        android:label="fragment_nav_main"
+        tools:layout="@layout/fragment_nav_main" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.koko.www.androiddemo.test.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
+    <fragment
+        android:id="@+id/blankFragment2"
+        android:name="com.koko.www.androiddemo.test.BlankFragment2"
+        android:label="fragment_blank_fragment2"
+        tools:layout="@layout/fragment_blank_fragment2" />
+    <fragment
+        android:id="@+id/blankFragment3"
+        android:name="com.koko.www.androiddemo.test.BlankFragment3"
+        android:label="fragment_blank_fragment3"
+        tools:layout="@layout/fragment_blank_fragment3" />
+
+</navigation>

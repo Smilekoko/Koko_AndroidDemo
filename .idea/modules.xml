@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Koko_AndroidDemo.iml" filepath="$PROJECT_DIR$/Koko_AndroidDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opensourcedemo/opensourcedemo.iml" filepath="$PROJECT_DIR$/opensourcedemo/opensourcedemo.iml" />
     </modules>
   </component>
 </project>

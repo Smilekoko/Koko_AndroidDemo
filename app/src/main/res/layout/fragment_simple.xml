@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:id="@+id/container"
-    tools:context="com.ak47.www.koko_androiddemo.structure.status.SimpleFragment">
+    tools:context=".component.activity.status.SimpleFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

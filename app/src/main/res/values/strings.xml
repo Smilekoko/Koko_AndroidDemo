@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">""</string>
-    <string name="l_y_l_a">L y l a</string>
-    <string name="b_e_n">B e n</string>
-    <string name="j_e_n_n_i_e">J e n n i e</string>
-    <string name="h_e_l_l_o">H e l l o !</string>
-    <string name="todo">TODO</string>
-    <string name="koukou">蔻蔻·海克梅迪亚</string>
+    <string name="app_name">"koko的安卓demo"</string>
     <string name="near_the">Near_the</string>
+    <string name="web_view" translatable="false">测试WebView控件</string>
+    <string name="credits" translatable="false">
+        <![CDATA[Stock Photos by <a href="https://www.flickr.com/photos/romainguy">Romain Guy</a>.
+        CC2 License.]]>
+    </string>
+
 
     <string-array name="query_suggestions">
         <item>Android</item>
@@ -29,23 +29,27 @@
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="imageview_description">The imageview that contains the emojified picture</string>
-    <string name="emojify_me">Emojify_me</string>
-    <string name="go">Go拍照</string>
-    <string name="start_activity">输入你要启动的activity</string>
-    <string name="star">star</string>
-    <string name="party_size_hint">Party size (max 99)</string>
-    <string name="taskAffinityString">该activity设置了taskAffinity属性,
+    <!--<string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>-->
+    <string name="imageview_description" translatable="false">The imageview that contains the emojified picture</string>
+    <string name="emojify_me" translatable="false">Emojify_me</string>
+    <string name="go" translatable="false">Go拍照</string>
+    <string name="start_activity" translatable="false">输入你要启动的activity</string>
+    <string name="star" translatable="false">star</string>
+    <string name="party_size_hint" translatable="false">Party size (max 99)</string>
+    <string name="taskAffinityString" translatable="false">该activity设置了taskAffinity属性,
         如果加载某个Activity的intent，Flag被设置成FLAG_ACTIVITY_NEW_TASK时，
         它会首先检查是否存在与自己taskAffinity相同的Task，如果存在，那么它会直接宿主到该Task中，如果不存在则重新创建Task。
     </string>
-    <string name="singleTopString">如果活动的实例已存在于当前任务的顶部，则系统通过调用其onNewIntent()方法将意图路由到该实例，而不是创建活动的新实例。活动可以多次实例化，每个实例可以属于不同的任务，一个任务可以有多个实例（但只有当后端堆栈顶部的活动不是活动的现有实例时）。</string>
-    <string name="FLAG_ACTIVITY_CLEAR_TOP_String">
+    <string name="singleTopString" translatable="false">如果活动的实例已存在于当前任务的顶部，则系统通过调用其onNewIntent()方法将意图路由到该实例，而不是创建活动的新实例。活动可以多次实例化，每个实例可以属于不同的任务，一个任务可以有多个实例（但只有当后端堆栈顶部的活动不是活动的现有实例时）。</string>
+    <string name="FLAG_ACTIVITY_CLEAR_TOP_String" translatable="false">
         清空task中，该活动上面的活动,
         如果它已将其启动模式声明为“多个”（默认值）并且您没有设置FLAG_ACTIVITY_SINGLE_TOP相同的意图，那么它将被完成并重新创建;
         对于所有其他启动模式或如果FLAG_ACTIVITY_SINGLE_TOP设置，则此Intent将被传递到当前实例的onNewIntent（）。
     </string>
+    <string name="skill_android" translatable="false">
+        1.并发\n2.网络编程\n
+    </string>
+
 
     <string-array name="planets_array">
         <item>Mercury</item>
@@ -57,4 +61,82 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+
+    <string name="AppBarLayoutString">CoordinatorLayout:协调布局，当有ScrollView时使用 \n
+        AppBarLayout 本身也是一个垂直方向的 LinearLayout，所以它的滑动主要是针对内部子View 的滑动。
+        这就需要设立一种规则来定义滑动的行为。 \n
+        ScrollView通过 app:layout_behavior="@string/appbar_scrolling_view_behavior" 与 AppBarLayout 关联起来 \n \n
+
+
+        1)scroll:值设为scroll的View会跟随滚动事件一起发生移动。 \n
+        2)enterAlways:enter下拉进入，单独使用无效果，scroll|enterAlways 表示下拉时，不管ScrollView的内容是否滑动，优先滑动 \n
+        3)exitUntilCollapsed：值设为exitUntilCollapsed的View，
+        当这个View要往上逐渐“消逝”时，会一直往上滑动，直到剩下的的高度达到它的最小高度后，再响应ScrollView的内部滑动事件。
+        需要的属性 android:minHeight="?android:attr/actionBarSize" \n
+        4)enterAlwaysCollapsed：是enterAlways的附加选项，一般跟enterAlways一起使用，它是指，View在往下“出现”的时候，
+        首先是enterAlways效果，当View的高度达到最小高度时，View就暂时不去往下滚动，
+        直到ScrollView滑动到顶部不再滑动时，View再继续往下滑动，直到滑到View的顶部结束。
+        需要的属性 android:minHeight="?android:attr/actionBarSize" \n
+        5)snap代表一种吸附的行为，当一个滑动事件结束后，Toolbar 会向最接近它的边缘自行滚动。那什么是最近的概念呢？
+        比如向上滑动时，如果滑过了一半它就向上滚动，否则滚动回原来的地方。 \n
+    </string>
+
+    <string name="CollapsingToolbarLayout_text">
+      <b>CollapsingToolbarLayout</b>: \n
+        用来对Toolbar进行再次包装的<b>ViewGroup</b>,
+        要是用于实现折叠（其实就是看起来像伸缩~）的App Bar效果。
+        它需要放在AppBarLayout布局里面，并且作为AppBarLayout的直接子View。\n
+        \n
+        <b>它为 Toolbar 带来了下面几个特性。</b> \n
+        Collapsing Title 可折叠的标题 \n
+        Content Scrim 内容纱布  \n
+        Status bar scrim 状态栏纱布 \n
+        Parallax scrolling children 子 View 的视差滚动行为 \n
+        Pinned position children 子类的位置固定行为 \n
+        \n
+        <b>注意:</b> \n
+        ToolBar和CollapsingToolbarLayout都设置title属性，ToolBar的会被CollapsingToolbarLayout覆盖 \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+        \n
+    </string>
+
+    <string name="seconds">%d seconds elapsed</string>
+
+
 </resources>
