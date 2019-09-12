@@ -26,13 +26,15 @@ class LiveDataActivity : AppCompatActivity() {
     //LiveDate可变的数据类型和ViewModel一起培和使用
     private fun subscribe() {
         //订阅可变的LiveDate数据类型
-        //Observer：观察者观察aLong值的变化
+
+        //Observer：观察者 观察aLong值的变化，消耗LiveData的数据变化
         val elapsedTimeObserver = Observer<Long> { aLong ->
             val newText = this@LiveDataActivity.resources.getString(R
                     .string.seconds, aLong)
             (findViewById<View>(R.id.timer_textview) as TextView).text = newText
         }
-        //将可变的订阅数据类型传入ViewModel
+
+        //将ViewModel中的LiveData和观察者关联
         //observe:观察
         mLiveDataTimerViewModel.getElapsedTime().observe(this, elapsedTimeObserver)
     }

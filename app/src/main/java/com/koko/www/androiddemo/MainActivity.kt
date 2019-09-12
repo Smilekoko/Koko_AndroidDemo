@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.koko.www.androiddemo.component.room.RoomActivity
 import com.koko.www.androiddemo.component.viewModel.ViewModelActivity
 
 
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val intent = Intent()
-        val component = ComponentName(this, ViewModelActivity::class.java)
+        val component = ComponentName(this, RoomActivity::class.java)
         intent.component = component
         startActivity(intent)
     }

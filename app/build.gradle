@@ -2,6 +2,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//user for Room
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -54,12 +56,32 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
 
-    //Model-View-ViewModel
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    //lifecycle组件
+    def lifecycle_version = "2.1.0-alpha04"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
+    //navigation
     def nav_version = '2.1.0-beta01'
+    //noinspection GradleDependency
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     // For Kotlin use navigation-fragment-ktx
+    //noinspection GradleDependency
     implementation "androidx.navigation:navigation-ui:$nav_version"
     // For Kotlin use navigation-ui-ktx
+
+    // Room components
+    def room_version = "2.2.0-beta01"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    kapt "androidx.room:room-compiler:$room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+
+    //kotlin coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
 }

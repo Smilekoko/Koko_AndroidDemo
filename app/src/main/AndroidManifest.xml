@@ -27,34 +27,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".component.room.RoomActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!--lifecycle-aware生命周组件-->
-        <activity android:name=".component.lifecycleAware.LifecycleActivity" />
-
-        <!--LiveData的例子-->
+        </activity> <!-- lifecycle-aware生命周组件 -->
+        <activity android:name=".component.lifecycleAware.LifecycleActivity" /> <!-- LiveData的例子 -->
         <activity
             android:name=".component.viewModel.liveData.LiveDataActivity"
             android:label="LiveData demo"
-            android:theme="@style/AppTheme" />
-
-        <!-- ViewModel的例子 -->
+            android:theme="@style/AppTheme" /> <!-- ViewModel的例子 -->
         <activity
             android:name=".component.viewModel.ViewModelActivity"
             android:label="ViewModel demo"
-            android:theme="@style/ActionBarTheme" />
-
-        <!--dataBinding的例子-->
-        <activity android:name=".component.dataBinding.DataBindingActivity" />
-
-        <!-- AppBar和SystemUI -->
+            android:theme="@style/ActionBarTheme" /> <!-- dataBinding的例子 -->
+        <activity android:name=".component.dataBinding.DataBindingActivity" /> <!-- AppBar和SystemUI -->
         <activity android:name=".useInterface.layout.ThemeActivity" />
         <activity
             android:name=".useInterface.systemUi.SystemUIActivity"
@@ -68,15 +58,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".useInterface.widget.appbar.ToolBarActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <!-- Navigation组件 -->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Navigation组件 -->
         <activity
             android:name=".navigation.NavMainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-
         <activity android:name=".useInterface.widget.textView.TextViewActivity" />
-
         <activity android:name=".debug.DebugActivity" />
         <activity android:name=".component.activity.status.StateActivity" />
         <activity android:name=".component.activity.OneActivity" />
