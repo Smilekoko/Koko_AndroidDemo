@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 /**
  * 数据库对象，一般使用单例模式来实例化
  */
-@Database(entities = [User::class], version = 1)
+@Database(exportSchema = false,entities = [User::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 

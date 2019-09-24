@@ -17,7 +17,7 @@ class LifecycleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lifecycle)
 
-        LifecycleAwareComponent.bindLifecycleAwareComponent(this, mGpsListener, applicationContext)
+        LifecycleAwareComponent.bindLifecycleAwareComponent(this)
     }
 
     /**

@@ -4,8 +4,7 @@ import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.koko.www.androiddemo.component.room.RoomActivity
-import com.koko.www.androiddemo.component.viewModel.ViewModelActivity
+import com.koko.www.androiddemo.component.paging.pagingWithDb.PagingActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val intent = Intent()
-        val component = ComponentName(this, RoomActivity::class.java)
+        val component = ComponentName(this, PagingActivity::class.java)
         intent.component = component
         startActivity(intent)
     }

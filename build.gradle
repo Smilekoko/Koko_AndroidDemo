@@ -1,24 +1,30 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+/**
+ * buildscript{} 为gradle本身配置repositories 和dependencies 的块
+ * 不应该包含modules的依赖
+ *
+ */
 buildscript {
-    ext.kotlin_version = '1.3.41'
-
+    //ext{}在项目级别定义某些属性并在所有模块之间共享这些属性
+    ext.kotlin_version = '1.3.41'//kotlin的版本
     repositories {
         jcenter()
         mavenCentral()
         google()
     }
+    /**
+     * Android plugin for Gradle as a depend
+     * because it provides the additional instructions that Gradle needs to build Android app modules.
+     */
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.android.tools.build:gradle:3.5.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
-
-
 }
 
+/**
+ * configure the repositories and dependencies for all modules in your project
+ * However, you should configure module-specific dependencies in each module-level build.gradle file.
+ */
 allprojects {
     repositories {
         jcenter()
@@ -33,3 +39,4 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

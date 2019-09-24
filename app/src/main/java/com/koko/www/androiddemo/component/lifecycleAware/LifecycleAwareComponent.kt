@@ -1,7 +1,5 @@
 package com.koko.www.androiddemo.component.lifecycleAware
 
-import android.content.Context
-import android.location.LocationListener
 import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
@@ -11,18 +9,22 @@ import androidx.lifecycle.OnLifecycleEvent
 /**
  * 订阅生命周期的组件
  * object还有一个非常重要的作用，就是生成单例对象。
+ *
+ * 这里还可以传入一些监听器，在生命周期改变时，设置监听器改变UI
  */
 object LifecycleAwareComponent {
 
-    fun bindLifecycleAwareComponent(lifecycleOwner: LifecycleOwner, mGpsListener: LocationListener, context: Context) {
+    fun bindLifecycleAwareComponent(lifecycleOwner: LifecycleOwner) {
 
-        MyObserver(lifecycleOwner, mGpsListener, context)
+        MyObserver(lifecycleOwner)
     }
 
     /**
      * 订阅生命周期
+     * 这里还可以传入一些监听器，在生命周期改变时，设置监听器改变UI
+     *
      */
-    internal class MyObserver(lifecycleOwner: LifecycleOwner, mGpsListener: LocationListener, context: Context) : LifecycleObserver {
+    internal class MyObserver(lifecycleOwner: LifecycleOwner) : LifecycleObserver {
 
 
         init {

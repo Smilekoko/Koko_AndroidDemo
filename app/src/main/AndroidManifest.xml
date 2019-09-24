@@ -10,15 +10,16 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 用于读取手机当前的状态 -->
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+        tools:ignore="ProtectedPermissions" /> <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -27,7 +28,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".component.room.RoomActivity"></activity>
+        <activity android:name=".component.paging.pagingWithDb.PagingActivity"/>
+        <activity android:name=".component.room.RoomActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -102,14 +104,8 @@
         </activity>
         <activity android:name=".component.service.Service_Activity" />
 
-        <service
-            android:name=".component.service.One_Service"
-            android:enabled="true"
-            android:exported="true"
-            android:permission=""
-            tools:ignore="ExportedService" />
-
         <activity android:name=".component.fragment.multiWindows.AndroidMeActivity" />
+
         <activity android:name=".component.fragment.multiWindows.MasterListActivity" />
         <activity android:name=".useInterface.layout.recyclerView.RecyclerView_Activity" />
         <activity android:name=".useInterface.layout.swipeRefreshLayout.SwipeRefreshLayout_Activity" />
@@ -125,6 +121,13 @@
         <activity android:name=".thread.asyncTask.AsyncTaskActivity" />
         <activity android:name=".component.ipc.parcelable.ParcelableActivity" />
         <activity android:name=".component.ipc.bundle.BundleActivity" />
+        <service
+            android:name=".component.service.One_Service"
+            android:enabled="true"
+            android:exported="true"
+            android:permission=""
+            tools:ignore="ExportedService" />
     </application>
+
 
 </manifest>
