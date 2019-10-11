@@ -7,7 +7,7 @@
     <!-- A small divider -->
     <fragment
         android:id="@+id/master_list_fragment"
-        android:name="com.koko.www.androiddemo.component.fragment.multiWindows.MasterListFragment"
+        android:name="com.koko.www.androiddemo.multiWindows.MasterListFragment"
         android:layout_width="400dp"
         android:layout_height="match_parent" />
 

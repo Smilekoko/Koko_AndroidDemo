@@ -37,12 +37,7 @@ public class HttpClient_activity extends AppCompatActivity {
         Button get_button = findViewById(R.id.get_button);
         Button post_button = findViewById(R.id.post_button);
 
-        get_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                get();
-            }
-        });
+        get_button.setOnClickListener(v -> get());
 
 
     }
@@ -52,51 +47,42 @@ public class HttpClient_activity extends AppCompatActivity {
      * 以get方式发送请求和响应处理
      */
     private static void get() {
-        new Thread(new Runnable() {
+        new Thread(() -> {
+
+            //第一步
+            CloseableHttpClient httpclient = HttpClients.createDefault();
+            try {
+                //第二步
+                HttpGet httpget = new HttpGet("http://httpbin.org/");
+
+                System.out.println("Executing request " + httpget.getRequestLine());
+
+                //第三步
+                // Create a custom response handler
+                ResponseHandler<String> responseHandler = response -> {
+                    int status = response.getStatusLine().getStatusCode();
+                    if (status >= 200 && status < 300) {
+                        HttpEntity entity = response.getEntity();
+                        return entity != null ? EntityUtils.toString(entity) : null;
+                    } else {
+                        throw new ClientProtocolException("Unexpected response status: " + status);
+                    }
+                };
 
 
-            @Override
-            public void run() {
+                String responseBody = httpclient.execute(httpget, responseHandler);
+                System.out.println("responseBody:-----" + responseBody);
 
-                //第一步
-                CloseableHttpClient httpclient = HttpClients.createDefault();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
                 try {
-                    //第二步
-                    HttpGet httpget = new HttpGet("http://httpbin.org/");
-
-                    System.out.println("Executing request " + httpget.getRequestLine());
-
-                    //第三步
-                    // Create a custom response handler
-                    ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
-
-                        @Override
-                        public String handleResponse(final HttpResponse response) throws IOException {
-                            int status = response.getStatusLine().getStatusCode();
-                            if (status >= 200 && status < 300) {
-                                HttpEntity entity = response.getEntity();
-                                return entity != null ? EntityUtils.toString(entity) : null;
-                            } else {
-                                throw new ClientProtocolException("Unexpected response status: " + status);
-                            }
-                        }
-                    };
-
-
-                    String responseBody = httpclient.execute(httpget, responseHandler);
-                    System.out.println("responseBody:-----" + responseBody);
-
+                    httpclient.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                } finally {
-                    try {
-                        httpclient.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                 }
-
             }
+
         }).start();
     }
 

@@ -4,11 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:id="@+id/container"
-    tools:context=".component.activity.status.SimpleFragment">
+    tools:context=".activity.status.SimpleFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/text_int"
@@ -17,7 +18,8 @@
             android:layout_weight="1"
             android:text="数字"
             android:textColor="#FF5765"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/text-string"
@@ -26,7 +28,8 @@
             android:layout_weight="1"
             android:text="字符"
             android:textColor="#46B8FF"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
 </FrameLayout>

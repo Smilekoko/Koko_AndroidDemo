@@ -3,23 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.koko.www.androiddemo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" /> <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于读取手机当前的状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -28,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".component.paging.pagingWithDb.PagingActivity"/>
-        <activity android:name=".component.room.RoomActivity" />
+        <activity android:name="com.koko.www.androiddemo.jetpack.paging.WithoutPagingLabActivity"></activity>
+        <activity android:name="com.koko.www.androiddemo.jetpack.paging.PagingActivity" />
+        <activity android:name=".jetpack.room.RoomActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,50 +21,50 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- lifecycle-aware生命周组件 -->
-        <activity android:name=".component.lifecycleAware.LifecycleActivity" /> <!-- LiveData的例子 -->
+        <activity android:name=".jetpack.lifecycleAware.LifecycleActivity" /> <!-- LiveData的例子 -->
         <activity
-            android:name=".component.viewModel.liveData.LiveDataActivity"
+            android:name=".jetpack.viewModel.LiveDataActivity"
             android:label="LiveData demo"
             android:theme="@style/AppTheme" /> <!-- ViewModel的例子 -->
         <activity
-            android:name=".component.viewModel.ViewModelActivity"
+            android:name=".jetpack.viewModel.ViewModelActivity"
             android:label="ViewModel demo"
             android:theme="@style/ActionBarTheme" /> <!-- dataBinding的例子 -->
-        <activity android:name=".component.dataBinding.DataBindingActivity" /> <!-- AppBar和SystemUI -->
+        <activity android:name=".jetpack.dataBinding.DataBindingActivity" /> <!-- AppBar和SystemUI -->
         <activity android:name=".useInterface.layout.ThemeActivity" />
         <activity
             android:name=".useInterface.systemUi.SystemUIActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".useInterface.widget.appbar.CollapsingToolbarLayoutActivity"
+            android:name="com.koko.www.androiddemo.useInterface.appbar.CollapsingToolbarLayoutActivity"
             android:theme="@style/CustomStatusBarTheme" />
-        <activity android:name=".useInterface.widget.appbar.CoordinatorLayoutActivity" />
+        <activity android:name="com.koko.www.androiddemo.useInterface.appbar.CoordinatorLayoutActivity" />
         <activity
-            android:name=".useInterface.widget.appbar.AppBarLayoutActivity"
+            android:name="com.koko.www.androiddemo.useInterface.appbar.AppBarLayoutActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".useInterface.widget.appbar.ToolBarActivity"
+            android:name="com.koko.www.androiddemo.useInterface.appbar.ToolBarActivity"
             android:theme="@style/AppTheme.NoActionBar" /> <!-- Navigation组件 -->
         <activity
             android:name=".navigation.NavMainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-        <activity android:name=".useInterface.widget.textView.TextViewActivity" />
+        <activity android:name="com.koko.www.androiddemo.useInterface.textView.TextViewActivity" />
         <activity android:name=".debug.DebugActivity" />
-        <activity android:name=".component.activity.status.StateActivity" />
-        <activity android:name=".component.activity.OneActivity" />
-        <activity android:name=".component.activity.TwoActivity" />
+        <activity android:name="com.koko.www.androiddemo.activity.status.StateActivity" />
+        <activity android:name="com.koko.www.androiddemo.activity.OneActivity" />
+        <activity android:name="com.koko.www.androiddemo.activity.TwoActivity" />
         <activity
-            android:name=".component.activity.launchMode.TaskAffinityActivity"
+            android:name="com.koko.www.androiddemo.activity.launchMode.TaskAffinityActivity"
             android:taskAffinity="com.kook_TaskAffinity.task" />
         <activity
-            android:name=".component.activity.launchMode.SingleTopActivity"
+            android:name="com.koko.www.androiddemo.activity.launchMode.SingleTopActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".component.activity.launchMode.CLEAR_TOPActivity"
+            android:name="com.koko.www.androiddemo.activity.launchMode.CLEAR_TOPActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".component.activity.interact.ImplicitIntentActivity" />
+        <activity android:name="com.koko.www.androiddemo.activity.interact.ImplicitIntentActivity" />
         <activity
-            android:name=".component.activity.multiWindow.MultiWindowActivity1"
+            android:name="com.koko.www.androiddemo.activity.multiWindow.MultiWindowActivity1"
             android:resizeableActivity="true"
             tools:targetApi="n">
             <layout
@@ -92,7 +76,7 @@
                 tools:targetApi="n" />
         </activity>
         <activity
-            android:name=".component.activity.multiWindow.MultiWindowActivity2"
+            android:name="com.koko.www.androiddemo.activity.multiWindow.MultiWindowActivity2"
             android:resizeableActivity="true"
             tools:targetApi="n">
             <layout
@@ -102,15 +86,13 @@
                 android:minWidth="100dp"
                 android:minHeight="100dp" />
         </activity>
-        <activity android:name=".component.service.Service_Activity" />
-
-        <activity android:name=".component.fragment.multiWindows.AndroidMeActivity" />
-
-        <activity android:name=".component.fragment.multiWindows.MasterListActivity" />
-        <activity android:name=".useInterface.layout.recyclerView.RecyclerView_Activity" />
-        <activity android:name=".useInterface.layout.swipeRefreshLayout.SwipeRefreshLayout_Activity" />
-        <activity android:name=".useInterface.widget.spinner.SpinnerActivity" />
-        <activity android:name=".useInterface.widget.webView.WebViewActivity" />
+        <activity android:name=".service.Service_Activity" />
+        <activity android:name=".multiWindows.AndroidMeActivity" />
+        <activity android:name=".multiWindows.MasterListActivity" />
+        <activity android:name="com.koko.www.androiddemo.useInterface.recyclerView.RecyclerViewActivity" />
+        <activity android:name=".useInterface.swipeRefreshLayout.SwipeRefreshLayout_Activity" />
+        <activity android:name=".useInterface.spinner.SpinnerActivity" />
+        <activity android:name="com.koko.www.androiddemo.useInterface.webView.WebViewActivity" />
         <activity android:name=".resource.drawable.LayerDrawableActivity" />
         <activity android:name=".sqlite.SqliteActivity" />
         <activity android:name=".net.apache.HttpClient_activity" />
@@ -119,15 +101,31 @@
             <!-- JSON的解析 -->
         </activity>
         <activity android:name=".thread.asyncTask.AsyncTaskActivity" />
-        <activity android:name=".component.ipc.parcelable.ParcelableActivity" />
-        <activity android:name=".component.ipc.bundle.BundleActivity" />
+        <activity android:name=".ipc.parcelable.ParcelableActivity" />
+        <activity android:name=".ipc.bundle.BundleActivity" />
+
         <service
-            android:name=".component.service.One_Service"
+            android:name=".service.One_Service"
             android:enabled="true"
             android:exported="true"
             android:permission=""
             tools:ignore="ExportedService" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" /> <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
 </manifest>

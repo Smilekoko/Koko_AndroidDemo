@@ -4,6 +4,6 @@
 <!--name直接来指定fragment都不需要再activity中添加了-->
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/master_list_fragment"
-    android:name="com.koko.www.androiddemo.component.fragment.multiWindows.MasterListFragment"
+    android:name="com.koko.www.androiddemo.multiWindows.MasterListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />

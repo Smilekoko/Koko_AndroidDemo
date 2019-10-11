@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:fitsSystemWindows="true"
-    tools:context=".useInterface.widget.appbar.CollapsingToolbarLayoutActivity">
+    tools:context=".useInterface.appbar.CollapsingToolbarLayoutActivity">
 
     <!--和ToolBar一起使用-->
     <!--<com.google.android.material.appbar.AppBarLayout-->

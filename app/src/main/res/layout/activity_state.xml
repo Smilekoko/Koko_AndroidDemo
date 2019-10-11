@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".component.activity.status.StateActivity">
+    tools:context=".activity.status.StateActivity">
 
     <fragment
         android:id="@+id/simpleFragment"
-        android:name="com.koko.www.androiddemo.component.activity.status.SimpleFragment"
+        android:name="com.koko.www.androiddemo.activity.status.SimpleFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

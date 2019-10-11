@@ -5,6 +5,7 @@
     <color name="colorAccent">#00E5FF</color>
     <color name="text_background">#B9D2FF</color>
     <color name="white">#FFFFFF</color>
+    <color name="titleColor">#1F75FE</color>
 
 
     <!-- Color for magnitude 0 and 2 -->

@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.koko.opensourcedemo">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name=".MyApplication"
         android:allowBackup="false"
@@ -14,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.koko.opensourcedemo.kotlin.coroutines.CoroutineScopeActivity"/>
-
+        <activity android:name=".okHttp.OkHttpActivity"></activity>
+        <activity android:name=".glide.GlideActivity" />
+        <activity android:name=".kotlin.coroutines.CoroutineScopeActivity" />
         <activity
             android:name=".retrofit.RetrofitActivity"
             android:label="RetrofitActivity" />
@@ -30,5 +29,7 @@
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

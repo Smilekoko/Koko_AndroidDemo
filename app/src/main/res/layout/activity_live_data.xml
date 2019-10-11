@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFE3ED"
-    tools:context=".component.viewModel.liveData.LiveDataActivity">
+    tools:context=".jetpack.viewModel.LiveDataActivity">
 
     <TextView
         android:id="@+id/timer_textview"

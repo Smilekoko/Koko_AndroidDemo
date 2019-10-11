@@ -9,7 +9,7 @@
 
         <variable
             name="simpleViewModel"
-            type="com.koko.www.androiddemo.component.dataBinding.SimpleViewModel" />
+            type="com.koko.www.androiddemo.ui.SimpleViewModel" />
     </data>
 
     <RelativeLayout

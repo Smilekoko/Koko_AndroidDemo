@@ -4,7 +4,7 @@
     tools:ignore="HardcodedText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".component.activity.launchMode.CLEAR_TOPActivity">
+    tools:context=".activity.launchMode.CLEAR_TOPActivity">
 
     <TextView
         android:layout_width="wrap_content"
