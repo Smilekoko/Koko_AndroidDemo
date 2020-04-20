@@ -10,7 +10,7 @@ fun main() {
 //    defaultArguments()
 
     //可以通过使用星号操作符将可变数量参数（vararg） 以命名形式传入：
-    koko(strings = *arrayOf("a", "b", "c"))
+    koko(strings = *arrayOf("baseUse", "b", "c"))
 
     //已经有一个数组并希望将其内容传给该函数，
     // 我们使用伸展（spread）操作符（在数组前面加 *）

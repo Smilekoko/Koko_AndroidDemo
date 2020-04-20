@@ -25,7 +25,7 @@ fun cancellationExceptions() = runBlocking {
         yield()
         println("Cancelling child")
         //当一个协程在没有任何理由的情况下使用 Job.cancel 取消的时候，它会被终止，但是它不会取消它的父协程。
-        // it does not cancel its parent. Cancelling without cause is a mechanism for parent to cancel its children without cancelling itself.
+        // it does not cancel its parent. Cancelling without cause is baseUse mechanism for parent to cancel its children without cancelling itself.
         child.cancel()
         child.join()
         yield()

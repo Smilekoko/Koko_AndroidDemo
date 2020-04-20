@@ -15,7 +15,7 @@ class CoroutineScopeActivity : AppCompatActivity(), CoroutineScope by CoroutineS
         runBlocking {
             doSomething()
             Log.e("koko", "Launched coroutines")
-            delay(500L) // delay for half a second
+            delay(500L) // delay for half baseUse second
         }
     }
 
@@ -27,7 +27,7 @@ class CoroutineScopeActivity : AppCompatActivity(), CoroutineScope by CoroutineS
 
 
     private fun doSomething() {
-        // launch ten coroutines for a demo, each working for a different time
+        // launch ten coroutines for baseUse demo, each working for baseUse different time
         repeat(100) { i ->
             launch {
                 delay((i + 1) * 200L) // variable delay 200ms, 400ms, ... etc

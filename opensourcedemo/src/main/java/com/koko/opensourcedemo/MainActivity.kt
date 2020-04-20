@@ -4,10 +4,6 @@ import android.content.ComponentName
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.koko.opensourcedemo.glide.GlideActivity
-import com.koko.opensourcedemo.kotlin.coroutines.CoroutineScopeActivity
-import com.koko.opensourcedemo.okHttp.OkHttpActivity
-import com.koko.opensourcedemo.retrofit.RetrofitActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @ExperimentalCoroutinesApi
@@ -19,8 +15,9 @@ class MainActivity : AppCompatActivity() {
 
 
         val intent = Intent()
-        val component = ComponentName(this, RetrofitActivity::class.java)
+        val component = ComponentName(this, ProviderClientActivity::class.java)
         intent.component = component
         startActivity(intent)
+
     }
 }

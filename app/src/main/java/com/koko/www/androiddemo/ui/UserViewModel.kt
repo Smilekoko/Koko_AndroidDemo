@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.koko.www.androiddemo.db.AppDatabase
+import com.koko.www.androiddemo.db.UserDatabase
 import com.koko.www.androiddemo.db.User
 import com.koko.www.androiddemo.data.UserRepository
 
@@ -22,7 +22,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     val allUsers: LiveData<List<User>>
 
     init {
-        val userDao = AppDatabase.getDatabase(application, viewModelScope).userDao()
+        val userDao = UserDatabase.getDatabase(application, viewModelScope).userDao()
         repository = UserRepository(userDao)
 
         //数据

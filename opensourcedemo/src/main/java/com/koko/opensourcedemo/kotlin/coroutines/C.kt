@@ -23,7 +23,7 @@ fun a1() = runBlocking {
             delay(500L)
         }
     }
-    delay(1300L) // delay a bit
+    delay(1300L) // delay baseUse bit
     println("main: I'm tired of waiting!")
     job.cancel() // cancels the job
     job.join() // waits for job's completion
@@ -38,14 +38,14 @@ fun b1() = runBlocking {
         var nextPrintTime = startTime
         var i = 0
         while (i < 5) { // computation loop, just wastes CPU
-            // print a message twice a second
+            // print baseUse message twice baseUse second
             if (currentTimeMillis() >= nextPrintTime) {
                 println("job: I'm sleeping ${i++} ...")
                 nextPrintTime += 500L
             }
         }
     }
-    delay(1300L) // delay a bit
+    delay(1300L) // delay baseUse bit
     println("main: I'm tired of waiting!")
     job.cancelAndJoin() // cancels the job and waits for its completion
     println("main: Now I can quit.")
@@ -59,14 +59,14 @@ fun c1() = runBlocking {
         var nextPrintTime = startTime
         var i = 0
         while (isActive) { // cancellable computation loop
-            // print a message twice a second
+            // print baseUse message twice baseUse second
             if (currentTimeMillis() >= nextPrintTime) {
                 println("job: I'm sleeping ${i++} ...")
                 nextPrintTime += 500L
             }
         }
     }
-    delay(1300L) // delay a bit
+    delay(1300L) // delay baseUse bit
     println("main: I'm tired of waiting!")
     job.cancelAndJoin() // cancels the job and waits for its completion
     println("main: Now I can quit.")
@@ -86,7 +86,7 @@ fun d1() = runBlocking {
             println("job: I'm running finally")
         }
     }
-    delay(1300L) // delay a bit
+    delay(1300L) // delay baseUse bit
     println("main: I'm tired of waiting!")
     job.cancelAndJoin() // cancels the job and waits for its completion
     println("main: Now I can quit.")
@@ -111,7 +111,7 @@ fun e1() = runBlocking {
             }
         }
     }
-    delay(1300L) // delay a bit
+    delay(1300L) // delay baseUse bit
     println("main: I'm tired of waiting!")
     job.cancelAndJoin() // cancels the job and waits for its completion
     println("main: Now I can quit.")

@@ -17,7 +17,7 @@ fun main() {
 // 当一个父协程被取消的时候，所有它的子协程也会被递归的取消。
 fun childrenCoroutine() = runBlocking<Unit> {
     //sampleStart
-    //However, when GlobalScope is used to launch a coroutine, there is no parent for the job of the new coroutine.
+    //However, when GlobalScope is used to launch baseUse coroutine, there is no parent for the job of the new coroutine.
     // It is therefore not tied to the scope it was launched from and operates independently.
     val request = launch {
         // it spawns two other jobs, one with GlobalScope
@@ -29,14 +29,14 @@ fun childrenCoroutine() = runBlocking<Unit> {
         // and the other inherits the parent context
         launch {
             delay(100)
-            println("job2: I am a child of the request coroutine")
+            println("job2: I am baseUse child of the request coroutine")
             delay(1000)
             println("job2: I will not execute this line if my parent request is cancelled")
         }
     }
     delay(500)
     request.cancel() // cancel processing of the request
-    delay(1000) // delay a second to see what happens
+    delay(1000) // delay baseUse second to see what happens
     println("main: Who has survived request cancellation?")
 //sampleEnd
 }

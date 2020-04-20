@@ -1,35 +1,31 @@
 <resources>
-    <string name="app_name">"koko的安卓demo"</string>
-    <string name="near_the">Near_the</string>
-    <string name="web_view" translatable="false">测试WebView控件</string>
+    <string name="near_the" translatable="false">Near_the</string>
     <string name="credits" translatable="false">
         <![CDATA[Stock Photos by <a href="https://www.flickr.com/photos/romainguy">Romain Guy</a>.
         CC2 License.]]>
     </string>
-    <string name="add_cheese">add cheese</string>
-    <string name="add">add</string>
+    <string name="add_cheese" translatable="false">add cheese</string>
 
-    <string name="loading">Loading</string>
-    <string name="language">Language: %s</string>
-    <string name="search_hint">GitHub Repository</string>
-    <string name="no_results">No results 😓</string>
-    <string name="unknown">\?</string>
+    <string name="loading" translatable="false">Loading</string>
+    <string name="language" translatable="false">Language: %s</string>
+    <string name="search_hint" translatable="false">GitHub Repository</string>
+    <string name="no_results" translatable="false">No results 😓</string>
+    <string name="unknown" translatable="false">\?</string>
+    <string name="select_image" translatable="false">Select Image</string>
+    <!-- Messages -->
+    <string name="set_permissions_in_settings" translatable="false">Go to Settings -> Apps and Notifications ->
+        WorkManager Demo -> App Permissions and grant access to Storage.</string>
 
-
-    <string name="imageview_description" translatable="false">The imageview that contains the emojified picture</string>
+    <string name="imageView_description" translatable="false">The imageview that contains the emojified picture</string>
 
     <string name="emojify_me" translatable="false">Emojify_me</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <!--<string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>-->
-    <string name="go" translatable="false">Go拍照</string>
+    <string name="go">Go Picture</string>
     <string name="start_activity" translatable="false">输入你要启动的activity</string>
     <string name="star" translatable="false">star</string>
     <string name="party_size_hint" translatable="false">Party size (max 99)</string>
-    <string name="taskAffinityString" translatable="false">该activity设置了taskAffinity属性,
-        如果加载某个Activity的intent，Flag被设置成FLAG_ACTIVITY_NEW_TASK时，
-        它会首先检查是否存在与自己taskAffinity相同的Task，如果存在，那么它会直接宿主到该Task中，如果不存在则重新创建Task。
-    </string>
     <string name="singleTopString" translatable="false">如果活动的实例已存在于当前任务的顶部，则系统通过调用其onNewIntent()方法将意图路由到该实例，而不是创建活动的新实例。活动可以多次实例化，每个实例可以属于不同的任务，一个任务可以有多个实例（但只有当后端堆栈顶部的活动不是活动的现有实例时）。</string>
     <string name="FLAG_ACTIVITY_CLEAR_TOP_String" translatable="false">
         清空task中，该活动上面的活动,
@@ -37,9 +33,9 @@
         对于所有其他启动模式或如果FLAG_ACTIVITY_SINGLE_TOP设置，则此Intent将被传递到当前实例的onNewIntent（）。
     </string>
     <string name="skill_android" translatable="false">
-        1.并发\n2.网络编程\n
+        1.并发\n2.网络编程
     </string>
-    <string name="AppBarLayoutString">CoordinatorLayout:协调布局，当有ScrollView时使用 \n
+    <string name="AppBarLayoutString" translatable="false">CoordinatorLayout:协调布局，当有ScrollView时使用 \n
         AppBarLayout 本身也是一个垂直方向的 LinearLayout，所以它的滑动主要是针对内部子View 的滑动。
         这就需要设立一种规则来定义滑动的行为。 \n
         ScrollView通过 app:layout_behavior="@string/appbar_scrolling_view_behavior" 与 AppBarLayout 关联起来 \n \n
@@ -57,7 +53,7 @@
         5)snap代表一种吸附的行为，当一个滑动事件结束后，Toolbar 会向最接近它的边缘自行滚动。那什么是最近的概念呢？
         比如向上滑动时，如果滑过了一半它就向上滚动，否则滚动回原来的地方。 \n
     </string>
-    <string name="CollapsingToolbarLayout_text">
+    <string name="CollapsingToolbarLayout_text" translatable="false">
       <b>CollapsingToolbarLayout</b>: \n
         用来对Toolbar进行再次包装的<b>ViewGroup</b>,
         要是用于实现折叠（其实就是看起来像伸缩~）的App Bar效果。
@@ -113,7 +109,10 @@
     </string>
 
 
-    <string name="seconds">%d seconds elapsed</string>
+    <string name="seconds" translatable="false">%d seconds elapsed</string>
+
+    <string name="channel_name" translatable="false">message name</string>
+    <string name="search_label" translatable="false">koko</string>
 
     <string-array name="query_suggestions">
         <item>Android</item>
@@ -145,6 +144,9 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
-
-
+    <string name="add" translatable="false">a</string>
+    <string name="app_name">koko android demo</string>
+    <string name="channel_description" translatable="false">Do you think,i have to a reason</string>
+    <string name="web_view">Test WebView Widget</string>
+    <string name="launch_new_activity">launch new activity</string>
 </resources>

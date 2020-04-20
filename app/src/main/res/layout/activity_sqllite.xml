@@ -30,20 +30,21 @@
             android:inputType="number"
             android:maxLength="2"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,LabelFor" />
     </LinearLayout>
 
 
     <Button
-        android:id="@+id/add_to_waitlist_button"
+        android:id="@+id/add_to_wait_list_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorPrimary"
-        android:onClick="addToWaitlist"
+        android:onClick="addToWaitList"
         android:text="ADD"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Inverse"
+        tools:ignore="HardcodedText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/all_guests_list_view"

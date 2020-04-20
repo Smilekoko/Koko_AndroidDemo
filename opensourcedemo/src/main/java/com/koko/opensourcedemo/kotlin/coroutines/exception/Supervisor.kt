@@ -55,7 +55,7 @@ fun supervisionScope() = runBlocking {
                     println("Child is cancelled")
                 }
             }
-            // Give our child a chance to execute and print using yield
+            // Give our child baseUse chance to execute and print using yield
             yield()
             println("Throwing exception from scope")
             throw AssertionError()

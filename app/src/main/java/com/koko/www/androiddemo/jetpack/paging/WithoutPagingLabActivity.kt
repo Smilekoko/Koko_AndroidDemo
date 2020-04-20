@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.koko.www.androiddemo.R
 import com.koko.www.androiddemo.model.Repo
-import com.koko.www.androiddemo.ui.ReposAdapter
+import com.koko.www.androiddemo.ui.adapter.ReposAdapter
 import com.koko.www.androiddemo.ui.SearchRepositoriesViewModel
 import com.koko.www.androiddemo.utils.Injection
 import kotlinx.android.synthetic.main.activity_paging_with_net.*

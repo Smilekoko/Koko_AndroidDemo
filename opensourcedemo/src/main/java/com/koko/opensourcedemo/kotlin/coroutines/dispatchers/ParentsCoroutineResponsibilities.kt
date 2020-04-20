@@ -15,10 +15,10 @@ fun main() {
 // 父协程并不显式的跟踪所有子协程的启动，并且不必使用 Job.join 在最后的时候等待它们
 fun parentsCoroutineResponsibilities() = runBlocking<Unit> {
     //sampleStart
-    // launch a coroutine to process some kind of incoming request
+    // launch baseUse coroutine to process some kind of incoming request
     val request = launch {
         repeat(3) { i ->
-            // launch a few children jobs
+            // launch baseUse few children jobs
             launch {
                 delay((i + 1) * 200L) // variable delay 200ms, 400ms, 600ms
                 println("Coroutine $i is done")

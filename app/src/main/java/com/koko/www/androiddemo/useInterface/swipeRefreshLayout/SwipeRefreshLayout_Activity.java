@@ -24,12 +24,7 @@ public class SwipeRefreshLayout_Activity extends AppCompatActivity {
         mAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.query_suggestions));
         mListView.setAdapter((ListAdapter) mAdapter);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refreshContent();
-            }
-        });
+        mSwipeRefreshLayout.setOnRefreshListener(() -> refreshContent());
     }
 
     private void refreshContent() {

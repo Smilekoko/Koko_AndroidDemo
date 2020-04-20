@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.koko.www.androiddemo.R
+import com.koko.www.androiddemo.ui.adapter.ListAdapter
+import com.koko.www.androiddemo.ui.adapter.MultiItemAdapter
 
 class RecyclerViewActivity : AppCompatActivity() {
 
@@ -19,7 +21,7 @@ class RecyclerViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_recyclerview)
-        mRecyclerView = findViewById(R.id.my_recycler_view)
+        mRecyclerView = findViewById(R.id.listView)
 
         initAdapter()
 
@@ -46,6 +48,6 @@ class RecyclerViewActivity : AppCompatActivity() {
     }
 
     private fun upDate() {
-        myRecyclerViewAdapter?.notifyDataSetChanged()
+//        myRecyclerViewAdapter?.notifyDataSetChanged()
     }
 }

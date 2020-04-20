@@ -51,7 +51,6 @@ class RetrofitActivity : AppCompatActivity() {
         //使用Json来定义Bean
         callRepos.enqueue(object : Callback<List<RepositoryJsonBean>> {
             override fun onFailure(call: Call<List<RepositoryJsonBean>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onResponse(call: Call<List<RepositoryJsonBean>>, response: Response<List<RepositoryJsonBean>>) {

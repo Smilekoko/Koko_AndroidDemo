@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="web_view">测试WebView的控件</string>
+    <string name="go">Go 拍照</string>
+    <string name="app_name">koko的安卓demo</string>
+    <string name="launch_new_activity">启动新activity</string>
+</resources>

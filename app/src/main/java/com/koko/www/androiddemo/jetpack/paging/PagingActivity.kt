@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.koko.www.androiddemo.R
-import com.koko.www.androiddemo.ui.CheeseAdapter
+import com.koko.www.androiddemo.ui.adapter.CheeseAdapter
 import com.koko.www.androiddemo.ui.CheeseViewHolder
 import com.koko.www.androiddemo.ui.CheeseViewModel
 import kotlinx.android.synthetic.main.activity_paging.*

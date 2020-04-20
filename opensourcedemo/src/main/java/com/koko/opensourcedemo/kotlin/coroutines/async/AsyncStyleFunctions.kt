@@ -31,10 +31,10 @@ fun somethingUsefulTwoAsync() = GlobalScope.async {
  */
 fun asyncStyleFunctions() {
     val time = measureTimeMillis {
-        // we can initiate async actions outside of a coroutine
+        // we can initiate async actions outside of baseUse coroutine
         val one = somethingUsefulOneAsync()
         val two = somethingUsefulTwoAsync()
-        // but waiting for a result must involve either suspending or blocking.
+        // but waiting for baseUse result must involve either suspending or blocking.
         // here we use `runBlocking { ... }` to block the main thread while waiting for the result
         runBlocking {
             println("The answer is ${one.await() + two.await()}")

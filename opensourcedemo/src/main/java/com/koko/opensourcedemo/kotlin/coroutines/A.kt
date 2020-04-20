@@ -2,16 +2,40 @@ package com.koko.opensourcedemo.kotlin.coroutines
 
 import kotlinx.coroutines.*
 
-fun main() {
-//   a()
-//    b()
-//    c()
+
+fun main(args: Array<String>) {
+    //    baseUse()
+//    mainCoroutine1()
+//    mainCoroutine2()
+    daemonThread()
 //    d()
 //    e()
-f()
+//    f()
 }
 
-fun a() {
+/**
+ * 守护线程
+ * 携程启动是一个守护线程，当主线程完成后，携程会被销毁，及时没有执行完
+ */
+fun daemonThread() {
+    val job = GlobalScope.launch {
+        delay(1000)
+        println("hello")
+    }
+    println("主线程睡眠前：isActive=${job.isActive} isCompleted=${job.isCompleted}")
+
+    println("world")
+    //主线程不睡眠的话,携程会提前结束
+    Thread.sleep(2000)
+    println("主线程睡眠后：isActive=${job.isActive} isCompleted=${job.isCompleted}")
+}
+
+
+/**
+ * 基本使用
+ * 携程是由程序直接实现的一种轻量级线程
+ */
+fun baseUse() {
     //在后台启动一个新的协程并继续
     GlobalScope.launch {
         delay(1000L) // 延迟（挂起）1000毫秒，注意这不会阻塞线程
@@ -21,7 +45,10 @@ fun a() {
     Thread.sleep(2000L) // 阻塞线程2s，保证JVM存活，协程可正常执行完
 }
 
-fun b() {
+/**
+ * runBlocking{}定义主携程
+ */
+fun mainCoroutine1() {
     GlobalScope.launch {
         // 在后台启动一个新的协程并继续
         delay(1000L)
@@ -34,7 +61,10 @@ fun b() {
     }
 }
 
-fun c() = runBlocking {
+/**
+ * 另外一种方式定义主携程
+ */
+fun mainCoroutine2() = runBlocking {
     // 开始执行主协程
     GlobalScope.launch {
         // 在后台启动一个新的协程并继续

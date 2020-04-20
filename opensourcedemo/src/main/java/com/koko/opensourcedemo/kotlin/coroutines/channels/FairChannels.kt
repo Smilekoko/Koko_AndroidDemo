@@ -17,7 +17,7 @@ fun main() {
 data class Ball(var hits: Int)
 
 fun fairChannel() = runBlocking {
-    val table = Channel<Ball>() // a shared table
+    val table = Channel<Ball>() // baseUse shared table
     launch { player("ping", table) }
     launch { player("pong", table) }
     table.send(Ball(0)) // serve the ball
@@ -26,10 +26,10 @@ fun fairChannel() = runBlocking {
 }
 
 suspend fun player(name: String, table: Channel<Ball>) {
-    for (ball in table) { // receive the ball in a loop
+    for (ball in table) { // receive the ball in baseUse loop
         ball.hits++
         println("$name $ball")
-        delay(300) // wait a bit
+        delay(300) // wait baseUse bit
         table.send(ball) // send the ball back
     }
 }

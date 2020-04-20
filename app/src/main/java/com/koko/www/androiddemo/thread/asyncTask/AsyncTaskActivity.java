@@ -1,17 +1,18 @@
 package com.koko.www.androiddemo.thread.asyncTask;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.koko.www.androiddemo.R;
 
@@ -37,9 +38,10 @@ public class AsyncTaskActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         if (isNetworkAvailable()) {
-            String url = "https://i.imgur.com/tGbaZCY.jpg";
+            String url = "https://tse4-mm.cn.bing.net/th/id/OIP._x8qSIY2yBKt1sPNgH9f4gHaDt?w=300&h=150&c=7&o=5&pid=1.7";
             new ImageDownloadTask(imageView).execute(url);
         }
+
     }
 
     //验证网络可用性
@@ -58,7 +60,7 @@ public class AsyncTaskActivity extends AppCompatActivity {
     // Params - 传递给execute（）方法的类型。
     // Progress - 任务内用于跟踪进度的类型。
     // Result - 由doInBackground（）返回的类型。
-    private class ImageDownloadTask extends AsyncTask<String, Integer, Bitmap> {
+    private  class ImageDownloadTask extends AsyncTask<String, Integer, Bitmap> {
         int count = 0;
 
         private static final String TAG = "AsyncTaskActivity";
@@ -100,7 +102,7 @@ public class AsyncTaskActivity extends AppCompatActivity {
                         in.close();
                         publishProgress(count * 20);
                     } catch (IOException e) {
-                        Log.e(TAG, "Exception while closing inputstream" + e);
+                        Log.e(TAG, "Exception while closing inputStream" + e);
                     }
                 }
             }
@@ -108,6 +110,7 @@ public class AsyncTaskActivity extends AppCompatActivity {
         }
 
         // Fires after the task is completed, displaying the bitmap into the ImageView
+        @SuppressLint("WrongThread")
         @Override
         protected void onPostExecute(Bitmap result) {
 

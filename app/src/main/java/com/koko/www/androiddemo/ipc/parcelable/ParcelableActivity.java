@@ -1,6 +1,8 @@
 package com.koko.www.androiddemo.ipc.parcelable;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import java.util.Calendar;
 public class ParcelableActivity extends AppCompatActivity {
     private TextView textView;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

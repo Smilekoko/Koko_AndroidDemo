@@ -18,9 +18,9 @@ suspend fun selectAorB(a: ReceiveChannel<String>, b: ReceiveChannel<String>): St
         select {
             a.onReceiveOrNull { value ->
                 if (value == null)
-                    "Channel 'a' is closed"
+                    "Channel 'baseUse' is closed"
                 else
-                    "a -> '$value'"
+                    "baseUse -> '$value'"
             }
             b.onReceiveOrNull { value ->
                 if (value == null)

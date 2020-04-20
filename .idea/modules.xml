@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Koko_AndroidDemo.iml" filepath="$PROJECT_DIR$/Koko_AndroidDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/opensourcedemo/opensourcedemo.iml" filepath="$PROJECT_DIR$/opensourcedemo/opensourcedemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Koko_AndroidDemo.iml" filepath="$PROJECT_DIR$/Koko_AndroidDemo.iml" group="Koko_AndroidDemo" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Koko_AndroidDemo/app" />
+      <module fileurl="file://$PROJECT_DIR$/opensourcedemo/opensourcedemo.iml" filepath="$PROJECT_DIR$/opensourcedemo/opensourcedemo.iml" group="Koko_AndroidDemo/opensourcedemo" />
     </modules>
   </component>
 </project>

@@ -19,7 +19,7 @@ fun log(msg: String) = println("[${Thread.currentThread().name}] $msg")
 fun debuggingCoroutinesAndThreads() = runBlocking {
     //sampleStart
     val a = async {
-        log("I'm computing a piece of the answer")
+        log("I'm computing baseUse piece of the answer")
         6
     }
     val b = async {
