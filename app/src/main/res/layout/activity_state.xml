@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.status.StateActivity">
 
-    <fragment
-        android:id="@+id/simpleFragment"
-        android:name="com.koko.www.androiddemo.activity.status.SimpleFragment"
+    <EditText
+        android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+        android:layout_height="40dp"
+        android:autofillHints="输入需保存值"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+</LinearLayout>

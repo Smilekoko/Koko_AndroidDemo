@@ -149,4 +149,6 @@
     <string name="channel_description" translatable="false">Do you think,i have to a reason</string>
     <string name="web_view">Test WebView Widget</string>
     <string name="launch_new_activity">launch new activity</string>
+    <string name="preference_file_key" translatable="false">preferenceKey</string>
+    <string name="activity_pref_key" translatable="false">activity_pref_key</string>
 </resources>

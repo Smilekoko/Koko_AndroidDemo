@@ -5,19 +5,19 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
-import com.koko.www.androiddemo.activity.launchMode.TaskAffinityActivity
-import com.koko.www.androiddemo.thread.asyncTask.AsyncTaskActivity
-import com.koko.www.androiddemo.useInterface.recyclerView.RecyclerViewActivity
+import com.koko.www.androiddemo.activity.status.StateActivity
+import com.koko.www.androiddemo.base.BaseActivity
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+
+    override var layoutId: Int
+        get() = R.layout.activity_main
+        set(value) {}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
         handleIntent(intent)
         newIntent()
     }
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun newIntent() {
         val intent = Intent()
-        val component = ComponentName(this, TaskAffinityActivity::class.java)
+        val component = ComponentName(this, StateActivity::class.java)
         intent.component = component
         startActivity(intent)
     }
